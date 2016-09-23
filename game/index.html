@@ -1,0 +1,431 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>hello phaser!</title>
+        <script src="/bomberman/lib/phaser.min.js"></script>
+    </head>
+    <body>
+
+    <script type="text/javascript">
+
+    function WALL(){
+        var walls = [1, 2, 3, 8, 9, 10, 11, 16, 17, 18, 19, 24, 25, 26, 27];
+        this.getBrickNum = function() {
+            return walls[ Math.floor(Math.random()*(walls.length - 1)) ];
+        };
+        this.solid = true;
+    }
+    var w = new WALL();
+
+    var MAP = [
+        [0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [0,   w,   0,   w,   0,   w,   0,   w,   0,   w,   0],
+        [0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [0,   w,   0,   w,   0,   w,   0,   w,   0,   w,   0],
+        [0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0],
+        [0,   w,   0,   w,   0,   w,   0,   w,   0,   w,   0],
+        [0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0]
+    ];
+
+    var SPACE = {
+        X: 60,
+        Y: 60
+    };
+
+    function getRoundedX(x){
+        return Math.floor(x / SPACE.X)*SPACE.X;
+    }
+    function getRoundedY(y){
+        return Math.floor(y / SPACE.Y)*SPACE.Y;
+    }
+    function getMapX(x){
+        if (!x) { return 0; }
+        return Math.floor(x / SPACE.X);
+    }
+    function getMapY(y){
+        if (!y) { return 0; }
+        return Math.floor(y / SPACE.Y);
+    }
+
+    function makeBomb (player) {
+        var game = player.game;
+        var bomb = new Phaser.Group(game);
+
+        bomb.position.x = getRoundedX(player.body.x);
+        bomb.position.y = getRoundedY(player.body.y);
+
+        var map_x = getMapX(bomb.position.x);
+        var map_y = getMapY(bomb.position.y);
+        var barrier = {
+            up: false, down: false, left: false, right: false
+        };
+
+        if (MAP[map_y + 1] &&
+            MAP[map_y + 1][map_x] &&
+            MAP[map_y + 1][map_x].solid) {
+            barrier.down = true;
+        }
+        if (MAP[map_y - 1] &&
+            MAP[map_y - 1][map_x] &&
+            MAP[map_y - 1][map_x].solid) {
+            barrier.up = true;
+        }
+        if (MAP[map_y][map_x - 1] &&
+            MAP[map_y][map_x - 1].solid) {
+            barrier.left = true;
+        }
+        if (MAP[map_y][map_x + 1] &&
+            MAP[map_y][map_x + 1].solid) {
+            barrier.right = true;
+        }
+
+        // bomb center
+        var center = game.add.sprite(0, 0, 'bomb', 30);
+        game.physics.arcade.enable(center);
+        center.body.immovable = true;
+        bomb.add(center);
+
+        center.animations
+            .add('moving',
+                [ 30, 29, 28, 29, 30, 29, 28, 29, 30, 29, 28, 29, 30, 29, 28, 29, 30 ], 10, false)
+            .play()
+            .onComplete.add(function(){
+                center.kill();
+                game.add.sound('explode').play();
+
+                // bomb flames
+                var flame_center = game.add.sprite(0, 0, 'flames', 34);
+                flame_center.animations
+                    .add('explosion', [ 0, 1, 2, 3, 2, 1, 0 ], 10, false)
+                    .play()
+                    .onComplete.add(function(){
+                        bomb.alive = false;
+                        bomb.destroy();
+                    });
+                bomb.add(flame_center);
+
+                if (!barrier.right) {
+                    var flame_right = game.add.sprite(0, 0, 'flames', 34);
+                    flame_right.position.x = SPACE.X;
+                    flame_right.animations
+                        .add('explosion', [16, 17, 18, 19, 18, 17, 16], 10, false)
+                        .play();
+
+                    bomb.add(flame_right);
+                }
+                if (!barrier.left) {
+                    var flame_left = game.add.sprite(0, 0, 'flames', 34);
+                    flame_left.position.x = -SPACE.Y;
+                    flame_left.animations
+                        .add('explosion', [4, 5, 6, 7, 6, 5, 4], 10, false)
+                        .play();
+
+                    bomb.add(flame_left);
+                }
+                if (!barrier.up) {
+                    var flame_up = game.add.sprite(0, 0, 'flames', 34);
+                    flame_up.position.y = -SPACE.Y;
+                    flame_up.animations
+                        .add('explosion', [12, 13, 14, 15, 14, 13, 12], 10, false)
+                        .play();
+
+                    bomb.add(flame_up);
+                }
+                if (!barrier.down) {
+                    var flame_down = game.add.sprite(0, 0, 'flames', 34);
+                    flame_down.position.y = SPACE.Y;
+                    flame_down.animations
+                        .add('explosion', [24, 25, 26, 27, 26, 25, 24], 10, false)
+                        .play();
+                    bomb.add(flame_down);
+                }
+
+                game.physics.arcade.enable(bomb);
+                bomb.setAll('body.immovable', true);
+            });
+
+        return bomb;
+    }
+
+    function touchingBomb(player, sprite) {
+        if(player.dead){
+            return;
+        }
+
+        if(sprite.key == 'flames'){
+            player.animations
+                .play('die')
+                .onComplete.add(function () {
+                    player.kill();
+                });
+
+            player.game.sound.add('hurt').play();
+            player.dead = true;
+        }
+    }
+
+    function makeBricks(game) {
+        var bricks = new Phaser.Group(game);
+
+        for (var Y in MAP){
+            for (var X in MAP[Y]){
+                if(MAP[Y][X] instanceof WALL){
+                    bricks.add(
+                        game.add.sprite(
+                            X*SPACE.X,
+                            Y*SPACE.Y,
+                            'bricks',
+                            MAP[Y][X].getBrickNum()
+                        )
+                    );
+                }
+            }
+        }
+
+        game.physics.arcade.enable(bricks);
+        bricks.setAll('body.immovable', true);
+        return bricks;
+    };
+
+    function chooseRandomPoint(MAP){
+        var y = Math.floor(Math.random() * (MAP.length - 0.01));
+        var x = Math.floor(Math.random() * (MAP[y].length - 0.01));
+        if(MAP[y][x].solid){
+            return chooseRandomPoint(MAP);
+        }
+        return { x: x, y: y };
+    }
+
+    function dumpPlayer(state, x, y, MAP) {
+        x = Math.floor(x);
+        y = Math.floor(y);
+
+        if(state.x === undefined || (state.x == x && state.y == y)){
+            var p = chooseRandomPoint(MAP);
+            state.x = p.x;
+            state.y = p.y;
+            state.y_priority = false   
+        }
+
+        var distance_x = state.x - x;
+        var distance_y = state.y - y;
+
+        if (!state.y_priority && distance_x > 0) {
+            if ((MAP[y][x+1] === undefined || MAP[y][x+1].solid)) {
+                if (y == 0) {
+                    return { down: true };                    
+                }
+                else {
+                    return { up: true };                    
+                }
+            }
+            return { right: true };
+        }
+        else if (!state.y_priority && distance_x < 0) { 
+            if ((MAP[y][x-1] === undefined || MAP[y][x-1].solid)) {
+                if (y == 0) {
+                    return { down: true };                    
+                }
+                else {
+                    return { up: true };                    
+                }
+            }
+            return { left: true };
+        }
+        else if (distance_y < 0) { 
+            if ((MAP[y-1] === undefined || MAP[y-1][x].solid)) {
+                if (x == 0) {
+                    state.y_priority = true;
+                    return { right: true };                    
+                }
+                else {
+                    state.y_priority = true;
+                    return { left: true };                    
+                }
+            }
+            return { up: true };
+        }
+        else if (distance_y > 0) { 
+            if ((MAP[y+1] === undefined || MAP[y+1][x].solid)) {
+                if (x == 0) {
+                    state.y_priority = true;
+                    return { right: true };                    
+                }
+                else {
+                    state.y_priority = true;
+                    return { left: true };                    
+                }
+            }
+            return { down: true };
+        }
+        else if (distance_x > 0) { 
+            state.y_priority = false;
+            return { right: true };
+        }
+        else if (distance_x < 0) { 
+            state.y_priority = false;
+            return { left: true };
+        }
+        else {
+            state.y_priority = false;
+        }
+
+        return { stop: true };
+    }
+
+    function Player(game, x, y, controller){
+        var phaserPlayer = game.add.sprite(x*SPACE.X, y*SPACE.Y, 'dude', 4);
+        game.physics.arcade.enable(phaserPlayer);
+        //  Player physics properties. Give the little guy a slight bounce.
+        phaserPlayer.body.collideWorldBounds = true;
+
+        phaserPlayer.animations.add('left', [0, 1, 2],  10, true);
+        phaserPlayer.animations.add('right',[9, 10, 11],10, true);
+        phaserPlayer.animations.add('up',   [6, 7, 8],  10, true);
+        phaserPlayer.animations.add('down', [3, 4, 5],  10, true);
+        phaserPlayer.animations.add('die',  [12, 13, 14, 15 ,16, 17, 18], 10, false);
+
+        this.pp = phaserPlayer;
+        this.lastSetBomb = 0;
+        this.state = {};
+        this.info = {};
+        this.lastAction = {};
+        this.controller = controller;
+    };
+
+    window.onload = function() {
+        var width  = (MAP[0].length) * SPACE.X;
+        var height = (MAP.length) * SPACE.Y;
+        var game   = new Phaser.Game(width, height, Phaser.AUTO, '',
+                                { preload: preload, create: create, update: update });
+        var cursors;
+        var player;
+        var pause = 0;
+        var bombs = [];
+        var players = [];
+        var bricks;
+
+        function preload () {
+            game.load.spritesheet('dude', '/bomberman/sprites/bomberman.png', 40, 60);
+            game.load.spritesheet('bomb', '/bomberman/sprites/bomb2.png', 60, 60);
+            game.load.spritesheet('flames', '/bomberman/sprites/bomb2.png', 60, 60);
+            game.load.spritesheet('bricks', '/bomberman/sprites/bricks.png', 60, 60);
+            game.load.audiosprite('explode', '/bomberman/sounds/explosion_15.mp3');
+            game.load.audiosprite('hurt', '/bomberman/sounds/hurt1.mp3');
+        }
+
+        function create () {
+            cursors = game.input.keyboard.createCursorKeys();
+            cursors.space = game.input.keyboard.addKeys({ space: Phaser.KeyCode.SPACEBAR}).space;
+            //  We're going to be using physics, so enable the Arcade Physics system
+            game.physics.startSystem(Phaser.Physics.ARCADE);
+
+            bricks = makeBricks(game);
+            // players.push(new Player(game, 1, 0, dumpPlayer));
+            // players.push(new Player(game, 5, 3, dumpPlayer));
+            for(var i=0; i < 2; i++){
+                players.push(new Player(game, i%MAP[0].length, i%MAP.length, dumpPlayer));
+            }
+            // players.push(new Player(game, 2, 0, dumpPlayer));
+            // players.push(new Player(game, 3, 0, dumpPlayer));
+            // players.push(new Player(game, 4, 0, dumpPlayer));
+            // players.push(new Player(game, 5, 0, dumpPlayer));
+            // players.push(new Player(game, MAP[0].length-1, MAP.length-1, dumpPlayer));
+            // players.push(new Player(game, MAP[0].length-1, 0, dumpPlayer));
+            // players.push(new Player(game, 0, MAP.length-1, dumpPlayer));
+        }
+
+        function updatePlayer(player) {
+            if(player.pp.dead){
+                return;
+            }
+
+            game.physics.arcade.collide(player.pp, bricks);
+            game.physics.arcade.overlap(player.pp, bombs, touchingBomb);
+
+            var newAction = player.controller(
+                                player.state,
+                                player.pp.body.x/SPACE.X,
+                                player.pp.body.y/SPACE.Y,
+                                MAP
+                            );
+
+            if(!(newAction instanceof Object)){
+                return;
+            }
+
+            if (newAction.setBomb && Date.now() - player.lastSetBomb > 1000) {
+                bombs.push(makeBomb(player.pp));
+                player.lastSetBomb = Date.now();
+            }
+
+            if (newAction.stop) {
+                player.pp.body.velocity.x = 0;
+                player.pp.body.velocity.y = 0;
+                player.pp.animations.stop();
+                player.pp.frame = 4;
+                return;
+            }
+
+            // finish movement on direction change
+            if ((player.lastAction.left || player.lastAction.right) &&
+                (newAction.up || newAction.down)) {
+                    if((player.pp.body.x % SPACE.X) != 0){
+                        return;
+                    }
+            }
+            else if ((player.lastAction.up || player.lastAction.down) &&
+                (newAction.left || newAction.right)) {
+                    if((player.pp.body.y % SPACE.Y) != 0){
+                        return;
+                    }
+            }
+
+            //  Reset the players velocity (movement)
+            player.pp.body.velocity.x = 0;
+            player.pp.body.velocity.y = 0;
+
+            if (newAction.right) {
+                player.pp.body.velocity.x = 150;
+                player.pp.animations.play('right');
+            }
+            else if (newAction.left) {
+                player.pp.body.velocity.x = -150;
+                player.pp.animations.play('left');
+            }
+            else if (newAction.down) {
+                player.pp.body.velocity.y = 150;
+                player.pp.animations.play('down');
+            }
+            else if (newAction.up) {
+                player.pp.body.velocity.y = -150;
+                player.pp.animations.play('up');
+            }
+            else {
+                player.pp.animations.stop();
+                player.pp.frame = 4;
+            }
+
+            player.lastAction = newAction;
+
+            // export data
+            player.info.x = player.pp.body.x;
+            player.info.y = player.pp.body.y;
+        }
+        // TODO:
+        // big bombs
+        // addPlayer(controller)
+        // game finish
+        function update () {
+            for(var pId in players){
+                updatePlayer(players[pId]);
+            }
+        }
+
+    };
+
+    </script>
+
+    </body>
+</html>

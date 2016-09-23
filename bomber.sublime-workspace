@@ -1,0 +1,2838 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"exp",
+				"explode"
+			],
+			[
+				"expo",
+				"explosion"
+			],
+			[
+				"bom",
+				"bombs"
+			],
+			[
+				"pa",
+				"parallel"
+			],
+			[
+				"var",
+				"varname"
+			],
+			[
+				"fi",
+				"filename"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"para",
+				"params"
+			],
+			[
+				"eve",
+				"eventType"
+			],
+			[
+				"m",
+				"middle"
+			],
+			[
+				"con",
+				"config"
+			],
+			[
+				"tw",
+				"tw_shared_types"
+			],
+			[
+				"sys",
+				"sysSettings"
+			],
+			[
+				"op",
+				"open"
+			],
+			[
+				"ci",
+				"citypos"
+			],
+			[
+				"sour",
+				"sourceAgentRT"
+			],
+			[
+				"dire",
+				"directions"
+			],
+			[
+				"a",
+				"agentLogin"
+			],
+			[
+				"rou",
+				"roundtrip_flights"
+			],
+			[
+				"start",
+				"startDate"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"desti",
+				"destination"
+			],
+			[
+				"city",
+				"cityname"
+			],
+			[
+				"coo",
+				"cookie"
+			],
+			[
+				"trip",
+				"trips"
+			],
+			[
+				"data",
+				"dataProcessor"
+			],
+			[
+				"c",
+				"chunk"
+			],
+			[
+				"deal",
+				"dealData"
+			],
+			[
+				"des",
+				"destination_lon"
+			],
+			[
+				"destin",
+				"destination_lat"
+			],
+			[
+				"from",
+				"fromGeo"
+			],
+			[
+				"co",
+				"console"
+			],
+			[
+				"up",
+				"update"
+			],
+			[
+				"upda",
+				"updateValue"
+			],
+			[
+				"sta",
+				"stay_to"
+			],
+			[
+				"on",
+				"onchange"
+			],
+			[
+				"cre",
+				"createDatePicker"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"depa",
+				"departureFrom"
+			],
+			[
+				"dep",
+				"departureFrom"
+			],
+			[
+				"times",
+				"timestamp"
+			],
+			[
+				"crea",
+				"createSlider"
+			],
+			[
+				"getTop",
+				"getDealsTopInternal"
+			],
+			[
+				"dela",
+				"dealsParams"
+			],
+			[
+				"cli",
+				"clientData"
+			],
+			[
+				"cl",
+				"clientId"
+			],
+			[
+				"cac",
+				"cached"
+			],
+			[
+				"clie",
+				"clientId"
+			],
+			[
+				"deals",
+				"dealsUtils"
+			],
+			[
+				"lien",
+				"lineData"
+			],
+			[
+				"se",
+				"serviceClass"
+			],
+			[
+				"conn",
+				"connect"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"serv",
+				"server_host"
+			],
+			[
+				"de",
+				"dealsParams"
+			],
+			[
+				"clientI",
+				"clientId"
+			],
+			[
+				"ret",
+				"return"
+			],
+			[
+				"par",
+				"parts"
+			],
+			[
+				"gds",
+				"gdsType"
+			],
+			[
+				"bes",
+				"bestStopsFare"
+			],
+			[
+				"pr",
+				"prototype"
+			],
+			[
+				"un",
+				"undefined"
+			],
+			[
+				"stay_",
+				"stay_from"
+			],
+			[
+				"tim",
+				"timelimit"
+			],
+			[
+				"ser",
+				"server_port"
+			],
+			[
+				"cal",
+				"callback"
+			],
+			[
+				"ti",
+				"timings"
+			],
+			[
+				"stat",
+				"states"
+			],
+			[
+				"l",
+				"list"
+			],
+			[
+				"cmd",
+				"cmdMetric"
+			],
+			[
+				"in",
+				"increment"
+			],
+			[
+				"S",
+				"StorageMetric"
+			],
+			[
+				"confi",
+				"configName"
+			],
+			[
+				"metrics",
+				"metricsInfo"
+			],
+			[
+				"arg",
+				"arguments"
+			],
+			[
+				"comma",
+				"command"
+			],
+			[
+				"pto",
+				"prototype"
+			],
+			[
+				"comman",
+				"commandMetricIncrement"
+			],
+			[
+				"getAll",
+				"getAllKeysBigBucket"
+			],
+			[
+				"loo",
+				"lookUpPath"
+			],
+			[
+				"forma",
+				"formatedTags"
+			],
+			[
+				"func",
+				"funcName"
+			],
+			[
+				"lin",
+				"lines"
+			],
+			[
+				"check",
+				"checkHahnair"
+			],
+			[
+				"creat",
+				"createStringParam"
+			],
+			[
+				"sea",
+				"searchId"
+			],
+			[
+				"dec",
+				"decodedData"
+			],
+			[
+				"sear",
+				"searchId"
+			],
+			[
+				"set",
+				"setPredefinedDeals"
+			],
+			[
+				"fun",
+				"funcName"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"bo",
+				"border-radius"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"timer",
+				"timerID"
+			],
+			[
+				"chec",
+				"checkData"
+			],
+			[
+				"STA",
+				"STAY_WEEKEND"
+			],
+			[
+				"fare",
+				"fareType"
+			],
+			[
+				"dea",
+				"dealInfo"
+			],
+			[
+				"is2",
+				"is2OW4RT"
+			],
+			[
+				"call",
+				"callbacks"
+			],
+			[
+				"agentL",
+				"agentLogin"
+			],
+			[
+				"agenPa",
+				"agentParticipantGroup"
+			],
+			[
+				"age",
+				"agentLogins"
+			],
+			[
+				"agen",
+				"agentsRates"
+			],
+			[
+				"gro",
+				"groupRates"
+			],
+			[
+				"by",
+				"byAgentClientData"
+			],
+			[
+				"fill",
+				"fillObjectWithAgentData"
+			],
+			[
+				"ag",
+				"agent"
+			],
+			[
+				"agind",
+				"agentIds"
+			],
+			[
+				"client",
+				"clientData"
+			],
+			[
+				"counter",
+				"counter_end"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"tr",
+				"true"
+			],
+			[
+				"del",
+				"dealsParams"
+			],
+			[
+				"filter",
+				"filterBySchema"
+			],
+			[
+				"di",
+				"directions"
+			],
+			[
+				"searc",
+				"searchParams"
+			],
+			[
+				"so",
+				"source"
+			],
+			[
+				"ro",
+				"rowCount"
+			],
+			[
+				"row",
+				"rows"
+			],
+			[
+				"STAY",
+				"STAY_ANY"
+			],
+			[
+				"getLo",
+				"getLocationCodeId"
+			],
+			[
+				"search",
+				"searchId"
+			],
+			[
+				"ori",
+				"originCode"
+			],
+			[
+				"or",
+				"origin_code"
+			],
+			[
+				"pric",
+				"priceStops"
+			],
+			[
+				"best",
+				"bestNoDirect"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<!doctype html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <title>hello phaser!</title>\n        <script src=\"/bomberman/lib/phaser.min.js\"></script>\n    </head>\n    <body>\n\n    <script type=\"text/javascript\">\n\n    function makeBomb (game, x, y, size) {\n        var bomb = new Phaser.Group(game);\n        bomb.position.x = Math.floor(x / 40)*40 + 20;\n        bomb.position.y = Math.floor(y / 40)*40 + 20;\n\n        // bomb center\n        var center = game.add.sprite(0, 0, 'bomb', 30);\n        game.physics.arcade.enable(center);\n        center.body.immovable = true;\n        bomb.add(center);\n\n        center.animations\n            .add('moving',\n                [ 30, 29, 28, 29, 30, 29, 28, 29, 30, 29, 28, 29, 30 ],\n                10, false)\n            .onComplete.add(function(){\n                center.kill();\n                game.add.sound('explode').play();\n\n                // bomb flames\n                var flame_center = game.add.sprite(0, 0, 'flames', 34);\n                flame_center.animations\n                    .add('explosion', [ 0, 1, 2, 3, 2, 1, 0 ], 10, false)\n                    .onComplete.add(function(){\n                        bomb.alive = false;\n                        bomb.destroy();\n                    });\n\n                var flame_right = game.add.sprite(0, 0, 'flames', 34);\n                flame_right.position.x = 40;\n                flame_right.animations.add('explosion', [\n                    16, 17, 18, 19, 18, 17, 16],\n                    10, false)\n\n                var flame_left = game.add.sprite(0, 0, 'flames', 34);\n                flame_left.position.x = -40;\n                flame_left.animations.add('explosion', [\n                    4, 5, 6, 7, 6, 5, 4],\n                    10, false);\n\n                var flame_up = game.add.sprite(0, 0, 'flames', 34);\n                flame_up.position.y = -40;\n                flame_up.animations.add('explosion', [\n                    12, 13, 14, 15, 14, 13, 12],\n                    10, false);\n\n                var flame_down = game.add.sprite(0, 0, 'flames', 34);\n                flame_down.position.y = +40;\n                flame_down.animations.add('explosion', [\n                    24, 25, 26, 27, 26, 25, 24],\n                    10, false);\n\n                bomb.add(flame_center);\n                bomb.add(flame_right);\n                bomb.add(flame_left);\n                bomb.add(flame_up);\n                bomb.add(flame_down);\n                game.physics.arcade.enable(bomb);\n                bomb.setAll('body.immovable', true);\n\n                flame_right.animations.play('explosion');\n                flame_left.animations.play('explosion');\n                flame_up.animations.play('explosion');\n                flame_down.animations.play('explosion');\n                flame_center.animations.play('explosion');\n            });\n\n        center.animations.play('moving');\n\n        return bomb;\n    }\n\n    function touchingBomb(player, sprite) {\n        if(player.dead){\n            return;\n        }\nx\n        if(sprite.key == 'flames'){\n            player.animations\n                .play('die')\n                .onComplete.add(function () {\n                    player.kill();\n                });\n\n            player.game.sound.add('hurt').play();\n            player.dead = true;\n        }\n    }\n\n    window.onload = function() {\n        var game = new Phaser.Game(400, 400, Phaser.AUTO, '',\n                                   { preload: preload, create: create, update: update });\n        var cursors;\n        // var player;\n\n        function preload () {\n            game.load.spritesheet('dude', '/bomberman/sprites/bomberman.png', 40, 60);\n            game.load.spritesheet('bomb', '/bomberman/sprites/bomb.png', 40, 40);\n            game.load.spritesheet('flames', '/bomberman/sprites/bomb.png', 40, 40);\n            game.load.audiosprite('explode', '/bomberman/sounds/explosion_15.mp3');\n            game.load.audiosprite('hurt', '/bomberman/sounds/hurt1.mp3');\n        }\n\n        function create () {\n            cursors = game.input.keyboard.createCursorKeys();\n            cursors.space = game.input.keyboard.addKeys({ space: Phaser.KeyCode.SPACEBAR}).space;\n            //  We're going to be using physics, so enable the Arcade Physics system\n            game.physics.startSystem(Phaser.Physics.ARCADE);\n\n            // The player and its settings\n            player = game.add.sprite(100, 200, 'dude', 4);\n            //  We need to enable physics on the player\n            game.physics.arcade.enable(player);\n\n            //  Player physics properties. Give the little guy a slight bounce.\n            player.body.bounce.y = 0.2;\n            player.body.collideWorldBounds = true;\n\n            player.animations.add('left', [0, 1, 2], 10, true);\n            player.animations.add('right', [9, 10, 11], 10, true);\n            player.animations.add('up', [6, 7, 8], 10, true);\n            player.animations.add('down', [3, 4, 5], 10, true);\n            player.animations.add('die', [12, 13, 14, 15 ,16, 17, 18], 10, false);\n        }\n\n\n\n        var pause = 0;\n        var bombs = [];\n        function update () {\n            //  Reset the players velocity (movement)\n            player.body.velocity.x = 0;\n            player.body.velocity.y = 0;\n\n            // game.physics.arcade.collide(player, bombs);\n            game.physics.arcade.overlap(player, bombs, touchingBomb);\n\n            if(player.dead){\n                return;\n            }\n\n            if (cursors.left.isDown)\n            {\n                player.body.velocity.x = -150;\n                player.animations.play('left');\n            }\n            else if (cursors.right.isDown)\n            {\n                player.body.velocity.x = 150;\n                player.animations.play('right');\n            }\n            else if (cursors.up.isDown)\n            {\n                player.body.velocity.y = -150;\n                player.animations.play('up');\n            }\n            else if (cursors.down.isDown)\n            {\n                player.body.velocity.y = 150;\n                player.animations.play('down');\n            }\n            else\n            {\n                //  Stand still\n                player.animations.stop();\n                player.frame = 4;\n            }\n\n            if (cursors.space.isDown && pause == 0)\n            {\n                // remove explosed bombs\n                bombs = bombs.filter(function(bomb){ return bomb.alive; });\n\n                var b = makeBomb(game, player.position.x, player.position.y);\n                bombs.push(b);\n                pause = 10;\n            }\n\n            if(pause > 0){\n                pause--;\n            }\n        }\n\n    };\n\n    </script>\n\n    </body>\n</html>",
+			"file": "game/index.html",
+			"file_size": 6745,
+			"file_write_time": 131187024800000000,
+			"settings":
+			{
+				"buffer_size": 6746,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/zubkov/project/phaser/build/custom/phaser-arcade-physics.js",
+			"settings":
+			{
+				"buffer_size": 2596532,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/zubkov/project/phaser/resources/tutorials/02 Making your first game/part9.html",
+			"settings":
+			{
+				"buffer_size": 4329,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/zubkov/project/phaser/src/animation/Animation.js",
+			"settings":
+			{
+				"buffer_size": 25592,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/zubkov/project/phaser/src/sound/AudioSprite.js",
+			"settings":
+			{
+				"buffer_size": 3395,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/zubkov/project/phaser/src/sound/SoundManager.js",
+			"settings":
+			{
+				"buffer_size": 23537,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/zubkov/project/phaser/src/sound/Sound.js",
+			"settings":
+			{
+				"buffer_size": 35382,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/zubkov/project/phaser/typescript/phaser.d.ts",
+			"settings":
+			{
+				"buffer_size": 220791,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/zubkov/project/phaser/src/animation/AnimationManager.js",
+			"settings":
+			{
+				"buffer_size": 16597,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/zubkov/project/phaser/src/physics/arcade/World.js",
+			"settings":
+			{
+				"buffer_size": 89992,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/node.sublime-build",
+					""
+				],
+				[
+					"Packages/User/cpp.sublime-build",
+					""
+				],
+				[
+					"Packages/User/iojs.sublime-build",
+					""
+				],
+				[
+					"Packages/User/node.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/node.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 227.0,
+		"last_filter": "dele",
+		"selected_items":
+		[
+			[
+				"dele",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"bla",
+				"Git: Blame"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"bl",
+				"Git: Blame"
+			],
+			[
+				"b",
+				"Git: Blame"
+			],
+			[
+				"iden",
+				"Indent JSON"
+			],
+			[
+				"ide",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"json",
+				"Indent JSON"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"html",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"reve",
+				"File: Revert"
+			],
+			[
+				"dlee",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"gitgu",
+				"GitGutter: Compare Against HEAD"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"jshi",
+				"jshintify: show errors list for current line"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"jshin",
+				"JSHint"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"linmod",
+				"SublimeLinter: Choose Lint Mode"
+			],
+			[
+				"linent",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"linenter",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"linter",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"lin",
+				"SublimeLinter: Previous Error"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pacl",
+				"Package Control: List Packages"
+			],
+			[
+				"del",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"fo",
+				"Clang Format: Format Selection"
+			],
+			[
+				"blam",
+				"Git: Blame"
+			],
+			[
+				"inde",
+				"Indent JSON"
+			],
+			[
+				"coma",
+				"Compare selections"
+			],
+			[
+				"lua",
+				"Set Syntax: Lua"
+			],
+			[
+				"dels",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"ident",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"min",
+				"View: Toggle Minimap"
+			],
+			[
+				"JS",
+				"Indent JSON"
+			],
+			[
+				"JSON",
+				"Indent JSON"
+			],
+			[
+				"ke",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"re",
+				"File: Revert"
+			],
+			[
+				"rev",
+				"File: Revert"
+			],
+			[
+				"dle",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"jso",
+				"Set Syntax: JSON"
+			],
+			[
+				"jsi",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"js",
+				"Indent JSON"
+			],
+			[
+				"deel",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"XML",
+				"Indent XML"
+			],
+			[
+				"de",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"dela",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"blame",
+				"Git: Blame"
+			],
+			[
+				"ja",
+				"Set Syntax: JavaScript Next My"
+			],
+			[
+				"jira",
+				"Set Syntax: JavaScript (Rails)"
+			],
+			[
+				"nex",
+				"Set Syntax: JavaScript Next My"
+			],
+			[
+				"todo",
+				"Set Syntax: ToDone"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"ba",
+				"Git: Blame"
+			],
+			[
+				"packains",
+				"Package Control: Install Package"
+			],
+			[
+				"IDEN",
+				"Indent XML"
+			],
+			[
+				"rever",
+				"File: Revert"
+			],
+			[
+				"gitdif",
+				"Git: Diff"
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"wra",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wrat",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"rel",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"pref",
+				"Preferences: Settings - User"
+			],
+			[
+				"JO",
+				"Set Syntax: JSON"
+			],
+			[
+				"buid",
+				"Build With: C++ Single File - Run"
+			],
+			[
+				"bui",
+				"Build With: C++ Single File - Run"
+			],
+			[
+				"mini",
+				"View: Toggle Minimap"
+			],
+			[
+				"git sta",
+				"Git: Status"
+			],
+			[
+				"git sho",
+				"Git: Show"
+			],
+			[
+				"git",
+				"Git: Show"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"tra",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"blma",
+				"Git: Blame"
+			],
+			[
+				"tria",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"trai",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"trail",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"tr",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"rmo",
+				"Package Control: Remove Package"
+			],
+			[
+				"plain",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"plaiplai",
+				"Trailing Spaces: Toggle Trailing Spaces Highlighting"
+			],
+			[
+				"blm",
+				"Git: Blame"
+			],
+			[
+				"IDE",
+				"Indent JSON"
+			],
+			[
+				"JSO",
+				"Set Syntax: JSON"
+			],
+			[
+				"user",
+				"Preferences: Settings - User"
+			],
+			[
+				"settin",
+				"Preferences: Settings - User"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"setti",
+				"Preferences: Settings - Default"
+			],
+			[
+				"bind",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"build",
+				"Build: New Build System"
+			],
+			[
+				"sett",
+				"Preferences: Settings - Default"
+			],
+			[
+				"user ",
+				"Preferences: Settings - User"
+			],
+			[
+				"hig",
+				"Trailing Spaces: Toggle Trailing Spaces Highlighting"
+			],
+			[
+				"pla",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"BLAME",
+				"Git: Blame"
+			],
+			[
+				"jaa",
+				"Set Syntax: JavaScript Next"
+			],
+			[
+				"git lo",
+				"Git: Log"
+			],
+			[
+				"git ",
+				"Git: Log"
+			],
+			[
+				"gits",
+				"Git: Status"
+			],
+			[
+				"map",
+				"View: Toggle Minimap"
+			],
+			[
+				"status",
+				"Git: Status"
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"statu",
+				"Git: Status"
+			],
+			[
+				"bin",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"javanex",
+				"Set Syntax: JavaScript Next"
+			],
+			[
+				"diff",
+				"Git: Diff"
+			],
+			[
+				"javasc",
+				"Set Syntax: JavaScript Next"
+			],
+			[
+				"erla",
+				"Set Syntax: Erlang"
+			],
+			[
+				"blamee",
+				"Build With: Make - Clean"
+			],
+			[
+				"idne",
+				"Indent JSON"
+			],
+			[
+				"JSN",
+				"Set Syntax: JSON"
+			],
+			[
+				"gitk",
+				"Gitk"
+			],
+			[
+				"tri",
+				"Trailing Spaces: Toggle Trailing Spaces Highlighting"
+			],
+			[
+				"pacre",
+				"Package Control: Remove Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"remp",
+				"Package Control: Remove Package"
+			],
+			[
+				"revert",
+				"File: Revert"
+			],
+			[
+				"MDM",
+				"Set Syntax: MultiMarkdown"
+			],
+			[
+				"open",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"tail",
+				"Trailing Spaces: Toggle Trailing Spaces Highlighting"
+			],
+			[
+				"balme",
+				"Git: Blame"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 274.0,
+		"history":
+		[
+			"view.substr(view.word(34))",
+			"view.substr(view.word(3))",
+			"view.substr(view.word(2))",
+			"view.substr(view.word(pt))",
+			"symbolIndexTransformation",
+			"Symbol List.tmPreferences",
+			"symbol",
+			"view.meta_info('symbolIndexTransformation', 0)",
+			"view.meta_info('symbolIndexTransformation', 0)'",
+			"view.indexed_symbols()",
+			"view",
+			"a.find('/project/') > -1",
+			"a.find('/project/')",
+			"inproject = a.find('/project/')",
+			"a.find('bdc')",
+			"a.find('bc')",
+			"a.find('abc')",
+			"a = \"abcdef\"",
+			"print('ff')",
+			"print",
+			"ss",
+			"import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/zubkov/project/bomberman",
+		"/Users/zubkov/project/bomberman/game",
+		"/Users/zubkov/project/bomberman/sounds",
+		"/Users/zubkov/project/bomberman/sprites"
+	],
+	"file_history":
+	[
+		"/Users/zubkov/project/phaser/docs/src_loader_Loader.js.html",
+		"/Users/zubkov/project/phaser/build/custom/phaser-arcade-physics.js",
+		"/Users/zubkov/project/phaser/resources/tutorials/Spanish/02 Creando tu primer juego/part9.html",
+		"/Users/zubkov/project/phaser/docs/index.html",
+		"/Users/zubkov/project/avia/src/tw_shared_types/metasearch_parser/utils.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/client_helper/client_helper.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/cabinClassDecoder/classes.json",
+		"/Users/zubkov/project/avia/src/mcore_modules/metasearch_parser/parser.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/metasearch_parser/toolkit.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/DAL/metasearch_parser/vertica.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/metasearch_parser/index.js",
+		"/Users/zubkov/project/avia/conf/api/modules_conf/deals_v4.conf",
+		"/Users/zubkov/project/avia/src/tw_shared_types/DAL/metasearch_parser/riak.js",
+		"/Users/zubkov/project/avia/src/mcore/lib/master.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/notification/notification_module.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/resevationbeholder/index.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/buyermanager/buyermanager.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/email_lists/email_lists.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/mapings/engine.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/mapings/searching.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/light_rpc/index.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/visitormanager/visitormanager_module.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/deals_v4/index.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/deals_v4/server_iface.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/monitoring/files/deals.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/resellers/utils.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/DAL/vertica_stat/redis.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/searching/searching_module.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/searching/process.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/searching/process/postsearch.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/amadeus_native_types/parsers/mptb.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/sirena/reservation.js",
+		"/Users/zubkov/project/avia/lib/nodejs/tw_require.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/process/helper.js",
+		"/Users/zubkov/project/avia/lib/nodejs/riak/lib/http-client.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/confirming/create_reservations.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/dal_cache_module/dal_cache_module.js",
+		"/Users/zubkov/project/avia/lib/nodejs/tw_storage.js",
+		"/Users/zubkov/project/avia/lib/nodejs/riak/lib/http-meta.js",
+		"/Users/zubkov/project/avia/lib/nodejs/riak/lib/http-request.js",
+		"/Users/zubkov/Downloads/ott.users",
+		"/Users/zubkov/project/avia/src/mcore_modules/process/index.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/external_services/siftscience.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/reservation/utils.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/reservation/validators.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/DAL/gds_log/riak.js",
+		"/Users/zubkov/project/avia/conf/api/entities.conf",
+		"/Users/zubkov/project/avia/src/tw_shared_types/DAL/gds_log/redis.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/version_info/version_info.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/price_alert/index.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/deals_model/deals_v3.js",
+		"/Users/zubkov/Downloads/allusers.json",
+		"/Users/zubkov/project/avia/src/tw_shared_types/order/utils.js",
+		"/Users/zubkov/Documents/OTT/zk BOD.txt",
+		"/Users/zubkov/project/avia/src/tw_shared_types/system/envirement.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/promo_codes/index.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/crypto/index.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/clientmanager/clientmanager_module.js",
+		"/Users/zubkov/project/avia/src/mcore/worker.js",
+		"/Users/zubkov/project/avia/conf/api/redisstorage.conf",
+		"/Users/zubkov/project/avia/src/tw_shared_types/searching/process/presearch.js",
+		"/Users/zubkov/project/avia/conf/api/cluster_parser.conf",
+		"/Users/zubkov/project/avia/lib/nodejs/tw_crypto.js",
+		"/Users/zubkov/project/avia/conf/api/whitelist.conf",
+		"/Users/zubkov/project/avia/src/mcore_modules/adminmanager/index.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/adminmanager/adminmanager_module.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/conditions/postsearch.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/sig_types/reservation.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/conditions/packet_markups.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/process/data.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/i18n/i18n.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/flight_stat/index.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/bonuses/promo.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/DAL/promo_codes/riak.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/metasearch_parser/classes/skyscanner.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/engines/manager.js",
+		"/Users/zubkov/project/avia/conf/api/modules_conf/notification.conf",
+		"/Users/zubkov/project/avia/src/mcore_modules/process/module.json",
+		"/Users/zubkov/project/avia/conf/api/tcs_registry.conf",
+		"/Users/zubkov/project/avia/src/mcore_modules/architect/index.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/index_creator/index.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/deals/index.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/process/create.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/bonuses/bonus_cards.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/lowcost/elsyarres/utils.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/process/payments.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/elsyarres.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/DAL/resource_pool/redis.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/stat_processor/stat_processor.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/process/confirm_utils.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/deals_v4/index.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/external_services/giftCertificate.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/DAL/process/redis.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/confirming/statistics.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/referrer/index.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/referrer/index.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/conditions/privatefares.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/cabinClassDecoder/manualExceptions.json",
+		"/Users/zubkov/project/avia/src/tw_shared_types/cars/engines/amadeus/index.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/DAL/amadeus_pool_storage/redis.js",
+		"/Users/zubkov/Downloads/avia_destinations_top_by_country",
+		"/Users/zubkov/project/avia/src/tw_shared_types/currencyrates/utils.js",
+		"/Users/zubkov/project/avia/lib/nodejs/logger/console_writer.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/mobile_utils/utils.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/payment/card_auth.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/confirming/confirm_by_pnr.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/amadeus_native_types/session_pool.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/reservation/index.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/confirming/anti_parser.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/gift_certificate/index.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/DAL/gift_certificates/redis.js",
+		"/Users/zubkov/project/avia/src/mcore_modules/maintenance/reservations.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/confirming/utils.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/DAL/confirmation/redis.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/DAL/process/riak.js",
+		"/Users/zubkov/project/chrome-extensions/silent-time/timer.html",
+		"/Users/zubkov/project/chrome-extensions/silent-time/timer.js",
+		"/Users/zubkov/project/chrome-extensions/silent-time/popup.html",
+		"/Users/zubkov/project/chrome-extensions/silent-time/manifest.json",
+		"/Users/zubkov/project/chrome-extensions/silent-time/init.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/references/geo/airports.json",
+		"/Users/zubkov/project/avia/cities.csv",
+		"/Users/zubkov/project/avia/src/tw_shared_types/references/geo/cities.json",
+		"/Users/zubkov/project/avia/src/tw_shared_types/DAL/i18n/riak.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/references/timezones/stations.json",
+		"/Users/zubkov/project/avia/src/mcore_modules/confirming/search.js",
+		"/Users/zubkov/project/avia/lib/nodejs/tw_queue_consumer.js",
+		"/Users/zubkov/project/avia/src/tw_shared_types/DAL/index.js"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 121.0,
+		"where_history":
+		[
+			"/Users/zubkov/project/phaser",
+			"/Users/zubkov/project/phaser*.js",
+			"/Users/zubkov/project/phaser",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/",
+			"/Users/zubkov/project/avia/src",
+			"/Users/zubkov/project/avia/lib/nodejs/riak/lib/",
+			"/Users/zubkov/project/avia",
+			"/Users/zubkov/project/chrome-extensions/silent-time/",
+			"/Users/zubkov/project/avia",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/deals_v4/",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/deals_v4/",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/DAL/",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/conf/api/",
+			"/Users/zubkov/project/avia/conf/api/*conf",
+			"/Users/zubkov/project/avia/conf/api/*.conf",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src",
+			"/Users/zubkov/project/avia",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/DAL/",
+			"/Users/zubkov/project/avia/src/DAL/",
+			"/Users/zubkov/project/avia/src/DAL",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/DAL/",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/DAL/",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/sirena",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/amadeus_native_types/parsers",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/metasearch_parser",
+			"/Users/zubkov/node_modules/redis/",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/node_modules/redis/",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/metasearch_parser",
+			"/Users/zubkov/project/",
+			"/Users/zubkov/project/avia",
+			"/Users/zubkov/project/",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/lib/nodejs/riak/",
+			"/Users/zubkov/project/nginx",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/lib/nodejs/riak/",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/sig_types",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/sirena",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/amadeus_native_types",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/sig_types",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/metasearch_parser",
+			"/Users/zubkov/project/avia/src/.*/metasearch_parser",
+			"/Users/zubkov/project/avia/src/*/metasearch_parser",
+			"/Users/zubkov/project/avia/src/mcore_modules/metasearch_parser",
+			"/Users/zubkov/project/avia/src/mcore_modules/metasearch_parser/*",
+			"/Users/zubkov/project/avia/src/mcore_modules/metasearch_parser/",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/elsyarres_types",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src",
+			"/Users/zubkov/project/avia",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/sirena",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/amadeus_native_types/templates",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/amadeus_native_types",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/amadeus_native_types",
+			"/Users/zubkov/project/avia/src",
+			"/Users/zubkov/project/avia",
+			"/Users/zubkov/project/avia/src",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/amadeus_native_types",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/amadeus_native_types",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/galileo_types/parsers",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/DAL",
+			"/Users/zubkov/project/avia/src",
+			"/Users/zubkov/project/avia/src/mcore_modules/process/hotels",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/sig_types",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/amadeus_types",
+			"/Users/zubkov/project/avia/src",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/pricing",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/sig_types",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/amadeus_types/parsers",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/galileo_types",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/amadeus_types",
+			"/Users/zubkov/project/avia/",
+			"/Users/zubkov/project/avia/src/tw_shared_types/engines/engines/sirena",
+			"/Users/zubkov/project/avia/"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"dead",
+			"touchingBomb",
+			"audiosprite",
+			"loader",
+			"audiosprite",
+			"AudioSprite",
+			"addSprite",
+			"audioSprite",
+			"audiosprite",
+			"bomb_explosion_sound",
+			"explode",
+			"audio",
+			"makeBomb",
+			"flame",
+			"bound",
+			"body",
+			"immovable",
+			"onComplete",
+			"explos",
+			"explose",
+			"onComplete",
+			"play",
+			".add",
+			"e.add",
+			"flame_up",
+			"flame_left",
+			"bomb",
+			"center",
+			"Phaser.Group",
+			"Group",
+			"left",
+			"right",
+			"expl_center",
+			"callAll",
+			"setAll",
+			"right",
+			"explosion_center",
+			"add",
+			".add",
+			"add",
+			"Animati",
+			"immo",
+			"moveble",
+			"bombr",
+			"collide(",
+			"colli",
+			"enable",
+			"makeBomb",
+			"pause",
+			"right",
+			"anim",
+			"makeBomb",
+			"35",
+			"animations",
+			"bombr",
+			"test",
+			"extend",
+			"--;",
+			".x",
+			"32",
+			"riak.set(metasearchConfig, key, value, function(err, data){",
+			"riak.set(metasearch",
+			"configUpdate",
+			"saveConfig",
+			"updateSitesConfig",
+			"updateRequestConfig",
+			"updateSitesConfig",
+			"saveRequestConfig",
+			"saveSitesConfig",
+			"updateRequestConfig",
+			"saveRequestConfig",
+			"saveResultInterval",
+			"choosefare",
+			"params",
+			"109.73.11.168",
+			"choosefare",
+			"PriceAlert_RunOnEnv",
+			"context.isPrivate",
+			"длина",
+			"EXPENSIVE_INTERLINE_PERCENT",
+			"RemoveExpensiveIntrelineThreshold",
+			"EXPENSIVE",
+			"УЧЗУТЫШМУ",
+			"promo",
+			"5N",
+			"cabin",
+			"class",
+			"5N",
+			"5Т",
+			"R",
+			"superop",
+			"super",
+			"superoperator",
+			"lastTicketDate",
+			"by_direction_choose_fact",
+			"choose_fac",
+			"choose\nchoose",
+			"choose",
+			"choose_fact",
+			"chooseFac",
+			"lastTicketDate",
+			"last",
+			"expire",
+			"maxLastTicketDate",
+			"lastTicketDate",
+			"reservationLock",
+			"getAuthAndReturnProfile",
+			"auth =",
+			"saveResultMode",
+			"SLOW",
+			"log.i",
+			"slow search",
+			"slow",
+			"search",
+			"SLOW",
+			"worker_timeout_kill",
+			"checkLongRunningInterval",
+			"Killing long running worker",
+			"killin",
+			"metasearch_parsing_config",
+			"data",
+			"mdmSaveCsv",
+			"updateMdmPackage",
+			"saveResultInterval",
+			"checkBalance =",
+			"moveReservationLog",
+			"movelogs =",
+			"movelog"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"tw_crypto().",
+			"aviagdsUtils().",
+			"\"addr\": [\"tcp://127.0.0.1:32120\"]",
+			"'",
+			"\\\"",
+			"",
+			"serviceClassWanted",
+			"===SYSMASTER===",
+			"===NNN==="
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "game/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6746,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3030,
+								3030
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1591.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"file": "sprites/bomb.png",
+					"semi_transient": false,
+					"stack_index": 10,
+					"type": "image"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/zubkov/project/phaser/build/custom/phaser-arcade-physics.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2596532,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1933490,
+								1933501
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptMy/JavaScriptNext.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 370727.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/zubkov/project/phaser/resources/tutorials/02 Making your first game/part9.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4329,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1522,
+								1531
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 951.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/zubkov/project/phaser/src/animation/Animation.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 25592,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4867,
+								4867
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptMy/JavaScriptNext.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 1.0,
+						"translation.y": 3316.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/zubkov/project/phaser/src/sound/AudioSprite.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3395,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptMy/JavaScriptNext.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1035.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/zubkov/project/phaser/src/sound/SoundManager.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 23537,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptMy/JavaScriptNext.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 16520.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/zubkov/project/phaser/src/sound/Sound.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 35382,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptMy/JavaScriptNext.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 11788.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Users/zubkov/project/phaser/typescript/phaser.d.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 220791,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								111949,
+								111963
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 70194.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/zubkov/project/phaser/src/animation/AnimationManager.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16597,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5687,
+								5691
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptMy/JavaScriptNext.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6069.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/Users/zubkov/project/phaser/src/physics/arcade/World.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 89992,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								16981,
+								16988
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptMy/JavaScriptNext.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 8683.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"file": "sprites/bomberman.png",
+					"semi_transient": false,
+					"stack_index": 9,
+					"type": "image"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 276.0
+	},
+	"output.find_results":
+	{
+		"height": 148.0
+	},
+	"output.git-checkout":
+	{
+		"height": 154.0
+	},
+	"output.git-commit":
+	{
+		"height": 154.0
+	},
+	"output.git-fetch":
+	{
+		"height": 154.0
+	},
+	"output.git-pull":
+	{
+		"height": 154.0
+	},
+	"output.git-push":
+	{
+		"height": 254.0
+	},
+	"pinned_build_system": "Packages/node.sublime-build",
+	"project": "bomber.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"dalmetas",
+				"src/tw_shared_types/DAL/metasearch_parser/riak.js"
+			],
+			[
+				"dealconf",
+				"conf/api/modules_conf/deals_v4.conf"
+			],
+			[
+				"cabincla",
+				"src/tw_shared_types/cabinClassDecoder/classes.json"
+			],
+			[
+				"cabinclass",
+				"src/tw_shared_types/cabinClassDecoder/classes.json"
+			],
+			[
+				"dalvertredi",
+				"src/tw_shared_types/DAL/vertica_stat/redis.js"
+			],
+			[
+				"verticare",
+				"src/tw_shared_types/DAL/vertica_stat/redis.js"
+			],
+			[
+				"amadesusmpjs",
+				"src/tw_shared_types/engines/engines/amadeus_native_types/parsers/mptb.js"
+			],
+			[
+				"searchpost",
+				"src/tw_shared_types/searching/process/postsearch.js"
+			],
+			[
+				"searchproce",
+				"src/tw_shared_types/searching/process.js"
+			],
+			[
+				"searchmod",
+				"src/mcore_modules/searching/searching_module.js"
+			],
+			[
+				"dealsco",
+				"conf/api/modules_conf/deals_v4.conf"
+			],
+			[
+				"parser",
+				"src/mcore_modules/metasearch_parser/parser.js"
+			],
+			[
+				"enti",
+				"conf/api/entities.conf"
+			],
+			[
+				"dalmetasearch_parser",
+				"src/tw_shared_types/DAL/metasearch_parser/riak.js"
+			],
+			[
+				"mapen",
+				"src/tw_shared_types/mapings/engine.js"
+			],
+			[
+				"searcmod",
+				"src/mcore_modules/searching/searching_module.js"
+			],
+			[
+				"pricealer",
+				"src/tw_shared_types/price_alert/index.js"
+			],
+			[
+				"vertiredis",
+				"src/tw_shared_types/DAL/vertica_stat/redis.js"
+			],
+			[
+				"verticaredis",
+				"src/tw_shared_types/DAL/vertica_stat/redis.js"
+			],
+			[
+				"resutils",
+				"src/tw_shared_types/resellers/utils.js"
+			],
+			[
+				"resellutil",
+				"src/tw_shared_types/resellers/utils.js"
+			],
+			[
+				"resellu",
+				"src/tw_shared_types/resellers/utils.js"
+			],
+			[
+				"libtwstor",
+				"lib/nodejs/tw_storage.js"
+			],
+			[
+				"dalcach",
+				"src/mcore_modules/dal_cache_module/dal_cache_module.js"
+			],
+			[
+				"tw_req",
+				"lib/nodejs/tw_require.js"
+			],
+			[
+				"vivitomana",
+				"src/mcore_modules/visitormanager/visitormanager_module.js"
+			],
+			[
+				"visotma",
+				"src/mcore_modules/visitormanager/visitormanager_module.js"
+			],
+			[
+				"vis",
+				"src/mcore_modules/visitormanager/visitormanager_module.js"
+			],
+			[
+				"white",
+				"conf/api/whitelist.conf"
+			],
+			[
+				"adminmanagerinde",
+				"src/mcore_modules/adminmanager/index.js"
+			],
+			[
+				"entit",
+				"conf/api/entities.conf"
+			],
+			[
+				"tcsco",
+				"conf/api/tcs_registry.conf"
+			],
+			[
+				"mana",
+				"src/tw_shared_types/engines/manager.js"
+			],
+			[
+				"dalmetasearch_parserriak",
+				"src/tw_shared_types/DAL/metasearch_parser/riak.js"
+			],
+			[
+				"iface",
+				"src/tw_shared_types/deals_v4/server_iface.js"
+			],
+			[
+				"rediss",
+				"conf/api/redisstorage.conf"
+			],
+			[
+				"dalverticaredis",
+				"src/tw_shared_types/DAL/vertica_stat/redis.js"
+			],
+			[
+				"redisst",
+				"conf/api/redisstorage.conf"
+			],
+			[
+				"worker",
+				"src/mcore/worker.js"
+			],
+			[
+				"processinde",
+				"src/mcore_modules/process/index.js"
+			],
+			[
+				"work",
+				"src/mcore/worker.js"
+			],
+			[
+				"cluster",
+				"conf/api/cluster_parser.conf"
+			],
+			[
+				"tw_cry",
+				"lib/nodejs/tw_crypto.js"
+			],
+			[
+				"resellutils",
+				"src/tw_shared_types/resellers/utils.js"
+			],
+			[
+				"lib/nodejs/riak/lib/http-request.js",
+				"lib/nodejs/riak/lib/http-request.js"
+			],
+			[
+				"whitelist",
+				"conf/api/whitelist.conf"
+			],
+			[
+				"envi",
+				"src/tw_shared_types/system/envirement.js"
+			],
+			[
+				"createreser",
+				"src/mcore_modules/confirming/create_reservations.js"
+			],
+			[
+				"envirn",
+				"src/tw_shared_types/system/envirement.js"
+			],
+			[
+				"postsea",
+				"src/tw_shared_types/searching/process/postsearch.js"
+			],
+			[
+				"searchmodue",
+				"src/mcore_modules/searching/searching_module.js"
+			],
+			[
+				"deals_v4js",
+				"src/tw_shared_types/deals_v4/index.js"
+			],
+			[
+				"processindexjs",
+				"src/mcore_modules/process/index.js"
+			],
+			[
+				"exce",
+				"src/tw_shared_types/cabinClassDecoder/manualExceptions.json"
+			],
+			[
+				"statprojs",
+				"src/tw_shared_types/stat_processor/stat_processor.js"
+			],
+			[
+				"redis",
+				"conf/api/redisstorage.conf"
+			],
+			[
+				"mcoremoduledeaindex",
+				"src/mcore_modules/deals/index.js"
+			],
+			[
+				"deals",
+				"src/tw_shared_types/deals_model/deals_v3.js"
+			],
+			[
+				"src/mcore/worker.j",
+				"src/mcore/worker.js"
+			],
+			[
+				"conso",
+				"lib/nodejs/logger/console_writer.js"
+			],
+			[
+				"condtipostse",
+				"src/tw_shared_types/conditions/postsearch.js"
+			],
+			[
+				"airpo",
+				"src/tw_shared_types/references/geo/airports.json"
+			],
+			[
+				"citi",
+				"src/tw_shared_types/references/geo/cities.json"
+			],
+			[
+				"cit",
+				"cities.csv"
+			],
+			[
+				"airpoto",
+				"src/tw_shared_types/references/geo/airports.json"
+			],
+			[
+				"dalpromo",
+				"src/tw_shared_types/DAL/promo_codes/riak.js"
+			],
+			[
+				"config.js",
+				"lib/nodejs/config.js"
+			],
+			[
+				"queueconjs",
+				"lib/nodejs/tw_queue_consumer.js"
+			],
+			[
+				"dalrunchere",
+				"src/tw_shared_types/DAL/run_check/redis.js"
+			],
+			[
+				"reselleruti",
+				"src/tw_shared_types/resellers/utils.js"
+			],
+			[
+				"giftce",
+				"src/mcore_modules/gift_certificate/index.js"
+			],
+			[
+				"giftc",
+				"src/tw_shared_types/external_services/giftCertificate.js"
+			],
+			[
+				"systemen",
+				"src/tw_shared_types/system/envirement.js"
+			],
+			[
+				"shareddealsinde",
+				"src/tw_shared_types/deals_model/index.js"
+			],
+			[
+				"manager",
+				"src/tw_shared_types/engines/manager.js"
+			],
+			[
+				"pric",
+				"src/tw_shared_types/deals_v4/pricing.js"
+			],
+			[
+				"pricing",
+				"src/tw_shared_types/deals_v4/pricing.js"
+			],
+			[
+				"pricin",
+				"src/tw_shared_types/deals_v4/pricing.js"
+			],
+			[
+				"dealsv4",
+				"src/mcore_modules/deals_v4/index.js"
+			],
+			[
+				"fakegds",
+				"src/tw_shared_types/engines/engines/fakegds.js"
+			],
+			[
+				"dalcurrenredi",
+				"src/tw_shared_types/DAL/currency_custom/redis.js"
+			],
+			[
+				"dalcurrredi",
+				"src/tw_shared_types/DAL/currency/redis.js"
+			],
+			[
+				"dealcon",
+				"conf/api/modules_conf/deals_v4.conf"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"src/tw_shared_types/deals_v4/index.js",
+				"src/tw_shared_types/deals_v4/index.js"
+			],
+			[
+				"dealsined",
+				"src/tw_shared_types/deals_v4/index.js"
+			],
+			[
+				"tw_shared_types/vertica/index",
+				"src/tw_shared_types/vertica/index.js"
+			],
+			[
+				"delasv",
+				"src/tw_shared_types/deals_v4/index.js"
+			],
+			[
+				"tw_shared_types/currencyrates/index_custom_rates.js",
+				"src/tw_shared_types/currencyrates/index_custom_rates.js"
+			],
+			[
+				"deals_v4",
+				"conf/api/modules_conf/deals_v4.conf"
+			],
+			[
+				"mcmodedeals",
+				"src/mcore_modules/deals/index.js"
+			],
+			[
+				"searchmo",
+				"src/mcore_modules/searching/searching_module.js"
+			],
+			[
+				"sirena",
+				"conf/api/engine_configs/sirena.conf"
+			],
+			[
+				"deals4",
+				"src/tw_shared_types/deals_v4/server_iface.js"
+			],
+			[
+				"dalinde",
+				"src/tw_shared_types/DAL/index.js"
+			],
+			[
+				"sear",
+				"src/mcore_modules/searching/searching_module.js"
+			],
+			[
+				"ifac",
+				"src/tw_shared_types/deals_v4/server_iface.js"
+			],
+			[
+				"whitel",
+				"conf/api/whitelist.conf"
+			],
+			[
+				"src/tw_shared_types/searching/request_types.js",
+				"src/tw_shared_types/searching/request_types.js"
+			],
+			[
+				"amqp",
+				"src/mcore/initializers/development/003_amqp_stats.js"
+			],
+			[
+				"engine_configs/galileo.conf",
+				"conf/api/engine_configs/galileo.conf"
+			],
+			[
+				"delas.htm",
+				"~/project/www/deals.html"
+			],
+			[
+				"delaprici",
+				"src/tw_shared_types/deals_v4/pricing.js"
+			],
+			[
+				"dalvisi",
+				"src/tw_shared_types/DAL/visitors/riak.js"
+			],
+			[
+				"tw_shared_types/visitors/utils",
+				"src/tw_shared_types/visitors/utils.js"
+			],
+			[
+				"visotemana",
+				"src/mcore_modules/visitormanager/visitormanager_module.js"
+			],
+			[
+				"checkavai",
+				"src/tw_shared_types/engines/engines/galileo_types/checkAvail.js"
+			],
+			[
+				"confirma",
+				"src/mcore_modules/orderbeholder/confirmation.js"
+			],
+			[
+				"process",
+				"src/tw_shared_types/searching/process.js"
+			],
+			[
+				"dalcurrency_custom",
+				"src/tw_shared_types/DAL/currency_custom/redis.js"
+			],
+			[
+				"mainenanjs",
+				"src/mcore_modules/maintenance/currencies.js"
+			],
+			[
+				"delas.",
+				"~/project/www/deals.html"
+			],
+			[
+				"decode",
+				"src/tw_shared_types/deals_v4/decode.js"
+			],
+			[
+				"aviagdsu",
+				"lib/nodejs/tw_aviagds_utils.js"
+			],
+			[
+				"searchrespontype",
+				"src/tw_shared_types/searching/response_types.js"
+			],
+			[
+				"schema",
+				"src/tw_shared_types/searching/type_schemas.js"
+			],
+			[
+				"ow_to_",
+				"src/tw_shared_types/searching/process/ow_to_rt_process.js"
+			],
+			[
+				"condpos",
+				"src/tw_shared_types/conditions/postsearch.js"
+			],
+			[
+				"deco",
+				"src/tw_shared_types/deals_v4/decode.js"
+			],
+			[
+				"monitorview",
+				"src/mcore_modules/monitoring/viewer.js"
+			],
+			[
+				"notif",
+				"conf/api/modules_conf/notification.conf"
+			],
+			[
+				"searcpostse",
+				"src/tw_shared_types/searching/process/postsearch.js"
+			],
+			[
+				"aviasa",
+				"src/mcore_modules/aviasales/aviasales.js"
+			],
+			[
+				"fake",
+				"src/tw_shared_types/engines/engines/fakegds.js"
+			],
+			[
+				"parserjs",
+				"src/mcore_modules/metasearch_parser/parser.js"
+			],
+			[
+				"metaparser",
+				"src/tw_shared_types/flight_stat/metar_parser.js"
+			],
+			[
+				"tw_shared_types/searching/type_schemas",
+				"src/tw_shared_types/searching/type_schemas.js"
+			],
+			[
+				"tw_storage",
+				"lib/nodejs/tw_storage.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "de",
+		"selected_items":
+		[
+			[
+				"de",
+				"~/project/deals-server/deals-server.sublime-project"
+			],
+			[
+				"12trip",
+				"~/project/12trip.sublime-project"
+			],
+			[
+				"12tr",
+				"~/project/12trip.sublime-project"
+			],
+			[
+				"12",
+				"~/project/12trip.sublime-project"
+			],
+			[
+				"12t",
+				"~/project/12trip.sublime-project"
+			],
+			[
+				"back",
+				"~/project/backoffice.sublime-project"
+			],
+			[
+				"ven",
+				"~/project/vent.sublime-project"
+			],
+			[
+				"",
+				"~/private/vent.sublime-workspace"
+			],
+			[
+				"avia",
+				"~/project/avia.sublime-project"
+			],
+			[
+				"bac",
+				"~/project/backoffice.sublime-project"
+			],
+			[
+				"ba",
+				"~/project/backoffice.sublime-project"
+			],
+			[
+				"tw",
+				"~/private/vent.sublime-workspace"
+			],
+			[
+				"12trp",
+				"~/project/12trip.sublime-project"
+			],
+			[
+				"jira",
+				"~/project/jiradash.sublime-project"
+			],
+			[
+				"jir",
+				"~/private/jiradash.sublime-workspace"
+			],
+			[
+				"tli",
+				"~/project/tlive.sublime-project"
+			],
+			[
+				"add",
+				"~/project/node_addons.sublime-project"
+			],
+			[
+				"avai",
+				"~/project/avia.sublime-project"
+			],
+			[
+				"tlive",
+				"~/project/tlive.sublime-project"
+			],
+			[
+				"ve",
+				"~/project/vent.sublime-project"
+			],
+			[
+				"node",
+				"~/project/node_addons.sublime-project"
+			],
+			[
+				"bo",
+				"~/project/backoffice.sublime-project"
+			],
+			[
+				"vent",
+				"~/project/vent.sublime-project"
+			],
+			[
+				"avi",
+				"~/project/avia.sublime-project"
+			],
+			[
+				"raw",
+				"~/private/jiradash.sublime-workspace"
+			],
+			[
+				"pronode",
+				"~/project/node_addons.sublime-project"
+			],
+			[
+				"vane",
+				"~/private/vent.sublime-project"
+			],
+			[
+				"12	",
+				"~/project/12trip.sublime-project"
+			],
+			[
+				"tl",
+				"~/project/tlive.sublime-project"
+			],
+			[
+				"ji",
+				"~/private/jiradash.sublime-project"
+			],
+			[
+				"12rt",
+				"~/project/12trip.sublime-project"
+			],
+			[
+				"12rip",
+				"~/project/12trip.sublime-project"
+			],
+			[
+				"no",
+				"~/project/node_addons.sublime-project"
+			],
+			[
+				"12tri",
+				"~/project/12trip.sublime-project"
+			],
+			[
+				"mo",
+				"~/project/node_addons.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"allowrun",
+				"allowApplicationRunOnEnv"
+			],
+			[
+				"resercontex",
+				"ReservationContext"
+			],
+			[
+				"cresreConte",
+				"createPostSearchContext"
+			],
+			[
+				"checkavail",
+				"checkavail"
+			],
+			[
+				"applyPri",
+				"applyPricing"
+			],
+			[
+				"linkSimpl",
+				"getRedirectLinkSimple"
+			],
+			[
+				"linkSimp",
+				"getRedirectLinkSimple"
+			],
+			[
+				"getfarerules",
+				"getFareRules"
+			],
+			[
+				"checkavai",
+				"checkavail"
+			],
+			[
+				"statistic",
+				"Statistics"
+			],
+			[
+				"fake",
+				"isFakeInput"
+			],
+			[
+				"readqueue",
+				"readQueue"
+			],
+			[
+				"readQueue",
+				"readqueue"
+			],
+			[
+				"reportCurrentTransportError",
+				"function reportCurrentTransportError()"
+			],
+			[
+				"sendMail",
+				"function sendMail(options, callback)"
+			],
+			[
+				"checkaval reser",
+				"function checkAvail(err, adtRes, cnnRes)"
+			],
+			[
+				"checkavail =",
+				"exports.checkAvail = function(request, callback)"
+			],
+			[
+				"startsync",
+				"exports.startSync = function(params)"
+			],
+			[
+				"'ROLE'",
+				"'vip-service-avl-other': function(files)"
+			],
+			[
+				"setInfo",
+				"exports.setInfo = function(key, info, callback)"
+			],
+			[
+				"doRequest",
+				"doRequest = function()"
+			],
+			[
+				"checkRunLimitLog",
+				"exports.checkRunLimitLog = function(key, limit, expire, callback)"
+			],
+			[
+				"isDiscountActual",
+				"exports.isDiscountActual = function(amount, currency)"
+			],
+			[
+				"getTaskFromQueue",
+				"exports.getTaskFromQueue = function(queueName, callback)"
+			],
+			[
+				"requestGet",
+				"exports.requestGet = function(path, currentRequest, callback)"
+			],
+			[
+				"calcMarkupsAndDiscounts",
+				"function calcMarkupsAndDiscounts(priceInfo, ticketPriceInfo)"
+			],
+			[
+				"calcMarkups",
+				"function calcMarkupsAndDiscounts(priceInfo, ticketPriceInfo)"
+			]
+		],
+		"width": 638.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 211.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
