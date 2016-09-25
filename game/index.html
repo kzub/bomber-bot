@@ -6,27 +6,30 @@
         <script src="/bomberman/lib/phaser.min.js"></script>
     </head>
     <body>
-
+    <script type="text/javascript" src="/bomberman/bots/simplebot.js"></script>
+    <script type="text/javascript" src="/bomberman/bots/zk.js"></script>
     <script type="text/javascript">
 
-    var WALL = 100;
+    var BOMBING_INTERVAL = 2000;
+    var WALL = W = 100;
     var MAP = [
-        [WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL],
-        [WALL, 0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  WALL],
-        [WALL, 0,   WALL,0,   WALL,0,   WALL,0,   WALL,0,   WALL,0,   WALL,0,  WALL],
-        [WALL, 0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  WALL],
-        [WALL, 0,   WALL,0,   WALL,0,   WALL,0,   WALL,0,   WALL,0,   WALL,0,  WALL],
-        [WALL, 0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  WALL],
-        [WALL, 0,   WALL,0,   WALL,0,   WALL,0,   WALL,0,   WALL,0,   WALL,0,  WALL],
-        [WALL, 0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  WALL],
-        [WALL, 0,   WALL,0,   WALL,0,   WALL,0,   WALL,0,   WALL,0,   WALL,0,  WALL],
-        [WALL, 0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  WALL],
-        [WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL,WALL]
-        // [WALL, 0,   WALL,WALL,WALL,0,   WALL,WALL,WALL,0,   WALL,WALL,WALL,0,  WALL],
-        // [WALL, 0,   WALL,0,   WALL,0,   0,   WALL,0,   0,   0,   WALL,0,   0,  WALL],
-        // [WALL, 0,   WALL,0,   WALL,0,   0,   WALL,0,   0,   0,   WALL,0,   0,  WALL],
-        // [WALL, 0,   WALL,0,   WALL,0,   0,   WALL,0,   0,   0,   WALL,0,   0,  WALL],
-        // [WALL, 0,   WALL,WALL,WALL,0,   0,   WALL,0,   0,   0,   WALL,0,   0,  WALL],
+        [W,W,W,W,W,W,W,W,W,W,W,W,W,W,W],
+        [W,0,0,0,0,0,0,0,0,0,0,0,0,0,W],
+        [W,0,W,0,W,0,W,0,W,0,W,0,W,0,W],
+        [W,0,0,0,0,0,0,0,0,0,0,0,0,0,W],
+        // [W,0,W,W,W,0,W,W,W,0,W,W,W,0,W],
+        // [W,0,W,0,W,0,0,W,0,0,0,W,0,0,W],
+        // [W,0,W,0,W,0,0,W,0,0,0,W,0,0,W],
+        // [W,0,W,0,W,0,0,W,0,0,0,W,0,0,W],
+        // [W,0,W,W,W,0,0,W,0,0,0,W,0,0,W],
+        // [W,0,0,0,0,0,0,0,0,0,0,0,0,0,W],
+        [W,0,W,0,W,0,W,0,W,0,W,0,W,0,W],
+        [W,0,0,0,0,0,0,0,0,0,0,0,0,0,W],
+        [W,0,W,0,W,0,W,0,W,0,W,0,W,0,W],
+        [W,0,0,0,0,0,0,0,0,0,0,0,0,0,W],
+        [W,0,W,0,W,0,W,0,W,0,W,0,W,0,W],
+        [W,0,0,0,0,0,0,0,0,0,0,0,0,0,W],
+        [W,W,W,W,W,W,W,W,W,W,W,W,W,W,W]
     ];
 
     var SPACE = {
@@ -34,48 +37,34 @@
         Y: 60
     };
 
-    function getRoundedX(x){
-        return Math.floor(x / SPACE.X)*SPACE.X;
-    }
-    function getRoundedY(y){
-        return Math.floor(y / SPACE.Y)*SPACE.Y;
-    }
-    function getMapX(x){
-        if (!x) { return 0; }
-        return Math.floor(x / SPACE.X);
-    }
-    function getMapY(y){
-        if (!y) { return 0; }
-        return Math.floor(y / SPACE.Y);
-    }
-
     function makeBomb (player, map) {
         var game = player.game;
         var bomb = new Phaser.Group(game);
 
-        bomb.position.x = getRoundedX(player.body.x);
-        bomb.position.y = getRoundedY(player.body.y);
+        bomb.position.x = Math.floor(player.body.x / SPACE.X)*SPACE.X;
+        bomb.position.y = Math.floor(player.body.y / SPACE.Y)*SPACE.Y;
 
-        var map_x = getMapX(bomb.position.x);
-        var map_y = getMapY(bomb.position.y);
+        var map_x = Math.floor(bomb.position.x / SPACE.X);
+        var map_y = Math.floor(bomb.position.y / SPACE.Y);
+
         var barrier = {
             up: false, down: false, left: false, right: false
         };
 
-        if (map(map_x, map_y + 1) > 0) {
+        if (map(map_x, map_y + 1) === WALL) {
             barrier.down = true;
         }
-        if (map(map_x, map_y - 1) > 0) {
+        if (map(map_x, map_y - 1) === WALL) {
             barrier.up = true;
         }
-        if (map(map_x - 1, map_y) > 0) {
+        if (map(map_x - 1, map_y) === WALL) {
             barrier.left = true;
         }
-        if (map(map_x + 1, map_y) > 0) {
+        if (map(map_x + 1, map_y) === WALL) {
             barrier.right = true;
         }
 
-        // bomb center
+        // bomb drawing
         var center = game.add.sprite(0, 0, 'bomb', 30);
         game.physics.arcade.enable(center);
         center.body.immovable = true;
@@ -143,20 +132,24 @@
         return bomb;
     }
 
-    function touchingBomb(player, sprite) {
+    function killPlayer(player){
         if(player.dead){
             return;
         }
 
-        if(sprite.key == 'flames'){
-            player.animations
-                .play('die')
-                .onComplete.add(function () {
-                    player.kill();
-                });
+        player.animations
+            .play('die')
+            .onComplete.add(function () {
+                player.kill();
+            });
 
-            player.game.sound.add('hurt').play();
-            player.dead = true;
+        player.game.sound.add('hurt').play();
+        player.dead = true;
+    }
+
+    function touchingBomb(player, sprite) {
+        if(sprite.key == 'flames'){
+            killPlayer(player);
         }
     }
 
@@ -188,114 +181,9 @@
         return bricks;
     };
 
-    function chooseRandomPoint(map){
-        var y = Math.floor(Math.random() * (map.height - 0.01));
-        var x = Math.floor(Math.random() * (map.width - 0.01));
-        if(map(x, y) > 0){
-            return chooseRandomPoint(map);
-        }
-        return { x: x, y: y };
-    }
-
-    function dumpPlayer(my_info, my_state, map, info_objects) {
-        var x = Math.floor(my_info.x());
-        var y = Math.floor(my_info.y());
-
-        for(var p in info_objects){
-            var obj = info_objects[p];
-            if(obj.type() !== 'player' ){
-                continue;
-            }
-            if(obj.id() === my_info.id()){
-                continue; // myself
-            }
-
-            // place bomb if enemi is near
-            if(Math.abs(obj.x() - x) < 3 && Math.abs(obj.y() - y) < 3){
-                if(my_state.bomb === undefined || my_state.bomb < Date.now() ){
-                    my_state.bomb = Date.now() + 1000;
-                    return 'bomb';
-                }
-            }
-        }
-
-        if(my_state.x === undefined || (my_state.x == x && my_state.y == y)){
-            var p = chooseRandomPoint(map);
-            my_state.x = p.x;
-            my_state.y = p.y;
-            my_state.y_priority = false
-        }
-
-        var distance_x = my_state.x - x;
-        var distance_y = my_state.y - y;
-
-        if (!my_state.y_priority && distance_x > 0) {
-            if (map(x + 1, y) > 0) {
-                if (map(x, y + 1) <= 0) {
-                    return 'down';
-                }
-                else {
-                    return 'up';
-                }
-            }
-            return 'right';
-        }
-        else if (!my_state.y_priority && distance_x < 0) {
-            if (map(x - 1, y) > 0) {
-                if (map(x, y + 1) <= 0) {
-                    return 'down';
-                }
-                else {
-                    return 'up';
-                }
-            }
-            return 'left';
-        }
-        else if (distance_y < 0) {
-            if (map(x, y - 1) > 0) {
-                if (map(x + 1, y) <= 0) {
-                    my_state.y_priority = true;
-                    return 'right';
-                }
-                else {
-                    my_state.y_priority = true;
-                    return 'left';
-                }
-            }
-            return 'up';
-        }
-        else if (distance_y > 0) {
-            if (map(x, y + 1) > 0) {
-                if (map(x + 1, y) <= 0) {
-                    my_state.y_priority = true;
-                    return 'right';
-                }
-                else {
-                    my_state.y_priority = true;
-                    return 'left';
-                }
-            }
-            return 'down';
-        }
-        else if (distance_x > 0) {
-            my_state.y_priority = false;
-            return 'right';
-        }
-        else if (distance_x < 0) {
-            my_state.y_priority = false;
-            return 'left';
-        }
-        else {
-            my_state.y_priority = false;
-        }
-
-        return 'stop';
-    }
-
     function Player(id, game, x, y, controller){
-        var phaserPlayer = game.add.sprite(x*SPACE.X, y*SPACE.Y, 'dude', 4);
+        var phaserPlayer = game.add.sprite(x * SPACE.X, y * SPACE.Y, 'dude', 4);
         game.physics.arcade.enable(phaserPlayer);
-        //  Player physics properties. Give the little guy a slight bounce.
         phaserPlayer.body.collideWorldBounds = true;
 
         phaserPlayer.animations.add('left', [0, 1, 2],  10, true);
@@ -305,27 +193,42 @@
         phaserPlayer.animations.add('die',  [12, 13, 14, 15 ,16, 17, 18], 10, false);
 
         var self = this;
+        // pubblic data
         self.id = id;
+        self.type = 'player';
+        self.x = x;
+        self.y = y;
+        self.lastAction = 'stop';
+        self.lastSetBomb = 0;
+        // visualization object
         self.pp = phaserPlayer;
+        // object that store bot's internal data 
         self.state = new (function PlayerInternalState(){})();
-        self.info = new (function PlayerPublicInfo() {
-            // defined as function for not let other players to overwrite data
-            this.type = function() { return 'player'; };
-            this.id = function() { return self.id; };
-            this.x = function() { return self.x; };
-            this.y = function() { return self.y; };
-            this.lastAction = function(){ return self.lastAction; } ;
-        })();
+        // public data readonly accessor
+        self.info = new Proxy(self, {
+            get: function(target, name){
+                if (['id', 'type', 'x', 'y', 'lastAction', 'lastSetBomb'].indexOf(name) === -1) {
+                        return;
+                }
+                return self[name];
+            },
+            set: function(obj, prop, value) {
+                throw 'Player object modification is forbidden';
+            }
+        });
+        // map readonly accessor
         self.map = function(x, y) {
-            // defined as function for not let other players to overwrite data
             if(MAP[y] === undefined){ return WALL; }
             if(MAP[y][x] === undefined){ return WALL; }
             return MAP[y][x];
         };
+        // constants
         self.map.width = MAP[0].length;
         self.map.height = MAP.length;
+        self.map.bombInterval = BOMBING_INTERVAL;
+        self.map.wall = WALL;
+        // bot logic implementation
         self.controller = controller;
-        self.lastSetBomb = 0;
     };
 
     window.onload = function() {
@@ -334,17 +237,35 @@
         var game   = new Phaser.Game(width, height, Phaser.AUTO, '',
                                      { preload: preload, create: create, update: update });
 
+        // debug [do not use it]:
         destroy = function (){
             game.destroy();
         }
+        glob_game = game;
 
         var cursors;
         var player;
         var pause = 0;
         var bombs = [];
         var players = [];
-        var info_objects = [];
         var bricks;
+        var map_objects_unsafe = []; // object with write access
+        // readonly proxy object
+        var map_objects = new Proxy(map_objects_unsafe, {
+            get: function(target, name){
+                return target[name];
+            },
+            set: function(obj, prop, value) {
+                throw 'Map objects modifications are forbidden';
+            }
+        });
+
+        var spawn_points = [
+            [1,1],
+            [MAP[0].length - 2, 1],
+            [1, MAP.length - 2],
+            [MAP[0].length - 2, MAP.length - 2]
+        ];
 
         function preload () {
             game.load.spritesheet('dude', '/bomberman/sprites/bomberman.png', 40, 60);
@@ -355,32 +276,34 @@
             game.load.audiosprite('hurt', '/bomberman/sounds/hurt1.mp3');
         }
 
+        // add = function (argument) {
+        //     var plr = new Player(0, game,
+        //                          spawn_points[0%spawn_points.length][0],
+        //                          spawn_points[0%spawn_points.length][1],
+        //                          dumpPlayer);
+        //     players.push(plr);
+        //     map_objects_unsafe.push(plr.info);
+        // }
+
         function create () {
             cursors = game.input.keyboard.createCursorKeys();
             cursors.space = game.input.keyboard.addKeys({ space: Phaser.KeyCode.SPACEBAR}).space;
             game.physics.startSystem(Phaser.Physics.ARCADE);
 
             bricks = makeBricks(game);
-            // players.push(new Player(0, game, 1, 1, dumpPlayer));
-            var spawn_points = [
-                [1,1],
-                [MAP[0].length - 2, 1],
-                [1, MAP.length - 2],
-                [MAP[0].length - 2, MAP.length - 2]
-            ];
 
-            for(var i = 0; i < 4; i++){
+            for(var i = 0; i < 2; i++){
                 var plr = new Player(i, game,
                                      spawn_points[i%spawn_points.length][0],
                                      spawn_points[i%spawn_points.length][1],
-                                     dumpPlayer);
+                                     i == -1 ? zkPlayer : dumpPlayer);
                 players.push(plr);
-                info_objects.push(plr.info);
+                map_objects_unsafe.push(plr.info);
             }
 
-            // debug:
+            // debug [do not use it]:
             p = players;
-            pp = info_objects;
+            pp = map_objects_unsafe;
         }
 
         function updatePlayer(player) {
@@ -397,25 +320,33 @@
             player.x = player.pp.body.x / SPACE.X;
             player.y = player.pp.body.y / SPACE.Y;
 
-            var newAction = player.controller(
+            try {
+                var newAction = player.controller(
                                 player.info,
                                 player.state,
                                 player.map,
-                                info_objects
+                                map_objects
                             );
+            }
+            catch(e) {
+                console.log('Player throw error:', e);
+                killPlayer(player.pp);
+                return;
+            }
 
             if (!newAction || newAction === 'stop') {
                 player.pp.body.velocity.x = 0;
                 player.pp.body.velocity.y = 0;
                 player.pp.animations.stop();
                 player.pp.frame = 4;
+                player.lastAction = newAction;
                 return;
             }
 
             if (newAction == 'bomb') {
-                if(Date.now() - player.lastSetBomb > 1000) {
+                if(Date.now() > player.lastSetBomb) {
                     bombs.push(makeBomb(player.pp, player.map));
-                    player.lastSetBomb = Date.now();
+                    player.lastSetBomb = Date.now() + BOMBING_INTERVAL;
                 }
                 return;
             }
@@ -462,6 +393,7 @@
             // direction change helper
             player.lastAction = newAction;
         }
+        
         // TODO:
         // big bombs
         // game finish
@@ -477,10 +409,10 @@
                 // remove dead players
                 if (player.pp.dead) {
                     players.splice(idx, 1);
-                    for(var id in info_objects){
-                        if (info_objects[id].type() === 'player' &&
-                            info_objects[id].id() == player.id) {
-                                info_objects.splice(id, 1);
+                    for(var id in map_objects_unsafe){
+                        if (map_objects_unsafe[id].type === 'player' &&
+                            map_objects_unsafe[id].id == player.id) {
+                                map_objects_unsafe.splice(id, 1);
                         }
                     }
                 }
