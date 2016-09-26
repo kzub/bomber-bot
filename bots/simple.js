@@ -1,6 +1,6 @@
 var route = function(map){
-    return [ [1, 1], 
-             [map.width - 2, 1], 
+    return [ [1, 1],
+             [map.width - 2, 1],
              [map.width - 2, map.height - 2],
              [1, map.height - 2]
     ][Math.floor(Math.random()*3.99)];
@@ -9,17 +9,27 @@ var route = function(map){
 function simpleBot(my_info, my_state, map, map_objects) {
     var x = Math.floor(my_info.x);
     var y = Math.floor(my_info.y);
-    var mapWidth = map.width;
-    var mapHeight = map.height;
-    var bombInterval = map.bombInterval;
-    var myId = my_info.id;
+
+    // my_info.id
+    // my_info.type
+    // my_info.x
+    // my_info.y
+    // my_info.lastAction
+    // my_info.lastSetBomb
+
+    // map.width;
+    // map.height;
+    // map.playerSpeed;
+    // map.bombInterval;
+    // map.bombExpode;
+    // map.bombExplosionFinish;
 
     for (var p in map_objects) {
         var player = map_objects[p];
         if (player.type !== 'player' ) {
             continue; // not players (comming soon...)
         }
-        if (player.id === myId) {
+        if (player.id === my_info.id) {
             continue; // myself
         }
 
@@ -28,13 +38,13 @@ function simpleBot(my_info, my_state, map, map_objects) {
                     player.type,
                     player.x,
                     player.y,
-                    player.lastAction, 
+                    player.lastAction,
                     player.lastSetBomb);
     }
 
     //  bombs
     if (my_state.bomb === undefined || my_state.bomb < Date.now() ) {
-        my_state.bomb = Date.now() + bombInterval;
+        my_state.bomb = Date.now() + map.bombInterval;
         return 'bomb';
     }
 

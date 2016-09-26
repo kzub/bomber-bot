@@ -1,5 +1,9 @@
 var BOMBING_INTERVAL = 2000;
 var WALL = W = 100;
+var PLAYER_SPEED = 150;
+var BOMB_EXPOLDE = 1700
+var BOMB_EXPLOSION_FINISH = 2400;
+
 var MAP = [
     [W,W,W,W,W,W,W,W,W,W,W,W,W,W,W],
     [W,0,0,0,0,0,0,0,0,0,0,0,0,0,W],
@@ -28,6 +32,10 @@ var SPACE = {
 function makeBomb (player, map) {
     var game = player.game;
     var bomb = new Phaser.Group(game);
+
+    if(typeof BOMB_BEGIN == 'undefined'){
+        BOMB_BEGIN = Date.now();
+    }
 
     bomb.position.x = Math.floor(player.body.x / SPACE.X)*SPACE.X;
     bomb.position.y = Math.floor(player.body.y / SPACE.Y)*SPACE.Y;
@@ -65,6 +73,7 @@ function makeBomb (player, map) {
         .onComplete.add(function(){
             center.kill();
             game.add.sound('explode').play();
+            // console.log('bomb explode time:', Date.now()- BOMB_BEGIN)
 
             // bomb flames
             var flame_center = game.add.sprite(0, 0, 'flames', 34);
@@ -74,6 +83,7 @@ function makeBomb (player, map) {
                 .onComplete.add(function(){
                     bomb.alive = false;
                     bomb.destroy();
+                    // console.log('bomb explosion finsh time:', Date.now()- BOMB_BEGIN)
                 });
             bomb.add(flame_center);
 
@@ -83,7 +93,6 @@ function makeBomb (player, map) {
                 flame_right.animations
                     .add('explosion', [16, 17, 18, 19, 18, 17, 16], 10, false)
                     .play();
-
                 bomb.add(flame_right);
             }
             if (!barrier.left) {
@@ -190,7 +199,7 @@ function Player(id, game, x, y, controller){
     self.lastSetBomb = 0;
     // visualization object
     self.pp = phaserPlayer;
-    // object that store bot's internal data 
+    // object that store bot's internal data
     self.state = new (function PlayerInternalState(){})();
     // public data readonly accessor
     self.info = new Proxy(self, {
@@ -211,10 +220,13 @@ function Player(id, game, x, y, controller){
         return MAP[y][x];
     };
     // constants
+    self.map.wall = WALL;
     self.map.width = MAP[0].length;
     self.map.height = MAP.length;
     self.map.bombInterval = BOMBING_INTERVAL;
-    self.map.wall = WALL;
+    self.map.bombExpode = BOMB_EXPOLDE;
+    self.map.bombExplosionFinish = BOMB_EXPLOSION_FINISH;
+    self.map.playerSpeed = PLAYER_SPEED;
     // bot logic implementation
     self.controller = controller;
 };
@@ -280,11 +292,11 @@ window.onload = function() {
 
         bricks = makeBricks(game);
 
-        for(var i = 0; i < 2; i++){
+        for(var i = 0; i < 1; i++){
             var plr = new Player(i, game,
                                  spawn_points[i%spawn_points.length][0],
                                  spawn_points[i%spawn_points.length][1],
-                                 0 == -1 ? zkBot : simpleBot);
+                                 simpleBot);
             players.push(plr);
             map_objects_unsafe.push(plr.info);
         }
@@ -358,19 +370,19 @@ window.onload = function() {
         player.pp.body.velocity.y = 0;
 
         if (newAction === 'right') {
-            player.pp.body.velocity.x = 150;
+            player.pp.body.velocity.x = PLAYER_SPEED;
             player.pp.animations.play('right');
         }
         else if (newAction === 'left') {
-            player.pp.body.velocity.x = -150;
+            player.pp.body.velocity.x = -PLAYER_SPEED;
             player.pp.animations.play('left');
         }
         else if (newAction === 'down') {
-            player.pp.body.velocity.y = 150;
+            player.pp.body.velocity.y = PLAYER_SPEED;
             player.pp.animations.play('down');
         }
         else if (newAction === 'up') {
-            player.pp.body.velocity.y = -150;
+            player.pp.body.velocity.y = -PLAYER_SPEED;
             player.pp.animations.play('up');
         }
         else {
