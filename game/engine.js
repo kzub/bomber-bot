@@ -29,19 +29,40 @@ var SPACE = {
     Y: 60
 };
 
+function getReadOnlyProxy(object, text) {
+    return new Proxy(object, {
+        get: function(target, name){
+            return target[name];
+        },
+        set: function(obj, prop, value) {
+            throw text;
+        }
+    });
+}
+
 function makeBomb (player, map) {
-    var game = player.game;
+    var pp = player.pp;
+    var map = player.map;
+    var game = pp.game;
+    var bomb_birth = Date.now();
     var bomb = new Phaser.Group(game);
 
-    if(typeof BOMB_BEGIN == 'undefined'){
-        BOMB_BEGIN = Date.now();
-    }
-
-    bomb.position.x = Math.floor(player.body.x / SPACE.X)*SPACE.X;
-    bomb.position.y = Math.floor(player.body.y / SPACE.Y)*SPACE.Y;
+    bomb.position.x = Math.floor(pp.body.x / SPACE.X)*SPACE.X;
+    bomb.position.y = Math.floor(pp.body.y / SPACE.Y)*SPACE.Y;
 
     var map_x = Math.floor(bomb.position.x / SPACE.X);
     var map_y = Math.floor(bomb.position.y / SPACE.Y);
+
+    var bomb_info = {
+        exists: true,
+        type: 'bomb',
+        owner: player.id,
+        x: map_x,
+        y: map_y,
+        birth: bomb_birth,
+        expode: bomb_birth + BOMB_EXPOLDE,
+        vanish: bomb_birth + BOMB_EXPLOSION_FINISH
+    };
 
     var barrier = {
         up: false, down: false, left: false, right: false
@@ -73,7 +94,7 @@ function makeBomb (player, map) {
         .onComplete.add(function(){
             center.kill();
             game.add.sound('explode').play();
-            // console.log('bomb explode time:', Date.now()- BOMB_BEGIN)
+            // console.log('bomb explode time:', Date.now()- bomb_birth)
 
             // bomb flames
             var flame_center = game.add.sprite(0, 0, 'flames', 34);
@@ -81,9 +102,10 @@ function makeBomb (player, map) {
                 .add('explosion', [ 0, 1, 2, 3, 2, 1, 0 ], 10, false)
                 .play()
                 .onComplete.add(function(){
+                    bomb_info.exists = false;
                     bomb.alive = false;
                     bomb.destroy();
-                    // console.log('bomb explosion finsh time:', Date.now()- BOMB_BEGIN)
+                    // console.log('bomb explosion finsh time:', Date.now()- bomb_birth)
                 });
             bomb.add(flame_center);
 
@@ -126,8 +148,11 @@ function makeBomb (player, map) {
             bomb.setAll('body.immovable', true);
         });
 
-    return bomb;
-}
+    return {
+        info: getReadOnlyProxy(bomb_info, 'Bomb objects modifications are forbidden'),
+        group: bomb
+    };
+};
 
 function killPlayer(player){
     if(player.dead){
@@ -196,7 +221,7 @@ function Player(id, game, x, y, controller){
     self.x = x;
     self.y = y;
     self.lastAction = 'stop';
-    self.lastSetBomb = 0;
+    self.nextBombTime = 0;
     // visualization object
     self.pp = phaserPlayer;
     // object that store bot's internal data
@@ -204,7 +229,7 @@ function Player(id, game, x, y, controller){
     // public data readonly accessor
     self.info = new Proxy(self, {
         get: function(target, name){
-            if (['id', 'type', 'x', 'y', 'lastAction', 'lastSetBomb'].indexOf(name) === -1) {
+            if (['id', 'type', 'x', 'y', 'lastAction', 'nextBombTime'].indexOf(name) === -1) {
                     return;
             }
             return self[name];
@@ -213,6 +238,7 @@ function Player(id, game, x, y, controller){
             throw 'Player object modification is forbidden';
         }
     });
+
     // map readonly accessor
     self.map = function(x, y) {
         if(MAP[y] === undefined){ return WALL; }
@@ -225,7 +251,7 @@ function Player(id, game, x, y, controller){
     self.map.height = MAP.length;
     self.map.bombInterval = BOMBING_INTERVAL;
     self.map.bombExpode = BOMB_EXPOLDE;
-    self.map.bombExplosionFinish = BOMB_EXPLOSION_FINISH;
+    self.map.bombVanish = BOMB_EXPLOSION_FINISH;
     self.map.playerSpeed = PLAYER_SPEED;
     // bot logic implementation
     self.controller = controller;
@@ -246,19 +272,12 @@ window.onload = function() {
     var cursors;
     var player;
     var pause = 0;
-    var bombs = [];
     var players = [];
-    var bricks;
+    var pp_bombs = [];
+    var pp_bricks;
     var map_objects_unsafe = []; // object with write access
     // readonly proxy object
-    var map_objects = new Proxy(map_objects_unsafe, {
-        get: function(target, name){
-            return target[name];
-        },
-        set: function(obj, prop, value) {
-            throw 'Map objects modifications are forbidden';
-        }
-    });
+    var map_objects = getReadOnlyProxy(map_objects_unsafe, 'Map objects modifications are forbidden');
 
     var spawn_points = [
         [1,1],
@@ -290,9 +309,9 @@ window.onload = function() {
         cursors.space = game.input.keyboard.addKeys({ space: Phaser.KeyCode.SPACEBAR}).space;
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
-        bricks = makeBricks(game);
+        pp_bricks = makeBricks(game);
 
-        for(var i = 0; i < 1; i++){
+        for(var i = 0; i < 2; i++){
             var plr = new Player(i, game,
                                  spawn_points[i%spawn_points.length][0],
                                  spawn_points[i%spawn_points.length][1],
@@ -307,8 +326,8 @@ window.onload = function() {
     }
 
     function updatePlayer(player) {
-        game.physics.arcade.collide(player.pp, bricks);
-        game.physics.arcade.overlap(player.pp, bombs, touchingBomb);
+        game.physics.arcade.collide(player.pp, pp_bricks);
+        game.physics.arcade.overlap(player.pp, pp_bombs, touchingBomb);
 
         // run once
         if(player.pp.dead){
@@ -330,6 +349,9 @@ window.onload = function() {
         }
         catch(e) {
             console.log('Player throw error:', e);
+            player.pp.body.velocity.x = 0;
+            player.pp.body.velocity.y = 0;
+            player.pp.animations.stop();
             killPlayer(player.pp);
             return;
         }
@@ -344,9 +366,11 @@ window.onload = function() {
         }
 
         if (newAction == 'bomb') {
-            if(Date.now() > player.lastSetBomb) {
-                bombs.push(makeBomb(player.pp, player.map));
-                player.lastSetBomb = Date.now() + BOMBING_INTERVAL;
+            if(Date.now() > player.nextBombTime) {
+                var bomb = makeBomb(player);
+                map_objects_unsafe.push(bomb.info);
+                pp_bombs.push(bomb.group);
+                player.nextBombTime = Date.now() + BOMBING_INTERVAL;
             }
             return;
         }
@@ -409,12 +433,21 @@ window.onload = function() {
             // remove dead players
             if (player.pp.dead) {
                 players.splice(idx, 1);
-                for(var id in map_objects_unsafe){
+                for (var id in map_objects_unsafe) {
                     if (map_objects_unsafe[id].type === 'player' &&
                         map_objects_unsafe[id].id == player.id) {
                             map_objects_unsafe.splice(id, 1);
+                            break;
                     }
                 }
+            }
+        }
+
+        // remove exploded bombs
+        for(var id in map_objects_unsafe){
+            if (map_objects_unsafe[id].type === 'bomb' &&
+               !map_objects_unsafe[id].exists) {
+                    map_objects_unsafe.splice(id, 1);
             }
         }
     }

@@ -6,40 +6,57 @@ var route = function(map){
     ][Math.floor(Math.random()*3.99)];
 }
 
+// Функция бота. Должна состоять из имени файла + слово Bot
+// На входе принимает данные о карте и других ботах/элементах
+// На выкоде команда к действию тип <string>
 function simpleBot(my_info, my_state, map, map_objects) {
+    // my_info  - информация об этом боте
+    // my_state - Object в котором можно хранить временные данные бота
+    // map - информация о карте и некоторые константы
+    // map_objects - информация о временных объектах на карте. Таких как игроки, бомбы, магичесие артефакты
+
     var x = Math.floor(my_info.x);
     var y = Math.floor(my_info.y);
 
-    // my_info.id
-    // my_info.type
-    // my_info.x
-    // my_info.y
-    // my_info.lastAction
-    // my_info.lastSetBomb
+    // my_info.type - типа == player
+    // my_info.id - id игрока
+    // my_info.x - координата на карте  в клетках
+    // my_info.y - координата на карте  в клетках
+    // my_info.lastAction - последнее известное действие
+    // my_info.nextBombTime - timestamp когда сможет поставить следующую бомбу
 
-    // map.width;
-    // map.height;
-    // map.playerSpeed;
-    // map.bombInterval;
-    // map.bombExpode;
-    // map.bombExplosionFinish;
+    // map.width - размерность карты в клетках
+    // map.height - размерность карты в клетках
+    // map.playerSpeed - скорость игрока. в чем измеряется пока не понял))
+    // map.bombInterval - как часто можно ставить бомбу
+    // map.bombExpode - timestamp когда бомба взорвется;
+    // map.bombVanish - timestamp когда бомба исчезнет после взрыва. можно проходить;
 
     for (var p in map_objects) {
-        var player = map_objects[p];
-        if (player.type !== 'player' ) {
-            continue; // not players (comming soon...)
-        }
-        if (player.id === my_info.id) {
-            continue; // myself
-        }
+        var object = map_objects[p];
+        if (object.type === 'player' ) {
+            if (object.id === my_info.id) {
+                continue; // myself
+            }
 
-        // you can use info about other players:
-        console.log(player.id,
-                    player.type,
-                    player.x,
-                    player.y,
-                    player.lastAction,
-                    player.lastSetBomb);
+            // you can use info about other players:
+            // object.id
+            // object.type
+            // object.x
+            // object.y
+            // object.lastAction
+            // object.nextBombTime
+        }
+        else if (object.type === 'bomb') {
+            // object.birth
+            // object.exists
+            // object.expode
+            // object.owner
+            // object.type
+            // object.vanish
+            // object.x
+            // object.y
+        }
     }
 
     //  bombs
@@ -77,5 +94,8 @@ function simpleBot(my_info, my_state, map, map_objects) {
         return 'left';
     }
 
+    // Бот может вернуть 6 действий строками
+    // идти налево, направо, вверх, вниз, стоять, поставить бомбу.
+    // left | right | up | down | stop | bomb
     return 'stop';
 }
