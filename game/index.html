@@ -6,7 +6,7 @@
         <script src="/bomberman/lib/phaser.min.js"></script>
     </head>
     <body>
-    <script type="text/javascript" src="/bomberman/bots/simplebot.js"></script>
+    <script type="text/javascript" src="/bomberman/bots/simple.js"></script>
     <script type="text/javascript" src="/bomberman/bots/zk.js"></script>
     <script type="text/javascript">
 
@@ -296,7 +296,7 @@
                 var plr = new Player(i, game,
                                      spawn_points[i%spawn_points.length][0],
                                      spawn_points[i%spawn_points.length][1],
-                                     i == -1 ? zkPlayer : dumpPlayer);
+                                     0 == -1 ? zkBot : simpleBot);
                 players.push(plr);
                 map_objects_unsafe.push(plr.info);
             }
@@ -393,7 +393,7 @@
             // direction change helper
             player.lastAction = newAction;
         }
-        
+
         // TODO:
         // big bombs
         // game finish
