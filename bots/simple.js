@@ -1,4 +1,8 @@
 var route = function(map){
+    // return [ [1, 1],
+    //          [3, 1],
+    //          [3, 3],
+    //          [1, 3]
     return [ [1, 1],
              [map.width - 2, 1],
              [map.width - 2, map.height - 2],

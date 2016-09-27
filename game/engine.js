@@ -26,7 +26,11 @@ var MAP = [
 
 var SPACE = {
     X: 60,
-    Y: 60
+    Y: 60,
+    XL: 10,
+    XR: 50,
+    YU: 10,
+    YD: 50
 };
 
 function getReadOnlyProxy(object, text) {
@@ -311,7 +315,7 @@ window.onload = function() {
 
         pp_bricks = makeBricks(game);
 
-        for(var i = 0; i < 2; i++){
+        for(var i = 0; i < 4; i++){
             var plr = new Player(i, game,
                                  spawn_points[i%spawn_points.length][0],
                                  spawn_points[i%spawn_points.length][1],
@@ -376,17 +380,44 @@ window.onload = function() {
         }
 
         // finish movement before direction change
-        if ((player.lastAction === 'left' || player.lastAction === 'right') &&
-            (newAction === 'up' || newAction === 'down')) {
-                if((player.pp.body.x % SPACE.X) != 0){
+        var xcelldiff = player.pp.body.x % SPACE.X;
+        var ycelldiff = player.pp.body.y % SPACE.Y;
+
+        if (player.lastAction === 'left' && (newAction === 'up' || newAction === 'down')) {
+            if (xcelldiff > 0) {
+                if (xcelldiff > SPACE.XL) {
                     return;
+                } else {
+                    player.pp.body.x -= xcelldiff;
                 }
+            }
         }
-        else if ((player.lastAction === 'up' || player.lastAction === 'down') &&
-            (newAction === 'left' || newAction === 'right')) {
-                if((player.pp.body.y % SPACE.Y) != 0){
+        else if (player.lastAction === 'right' && (newAction === 'up' || newAction === 'down')) {
+            if (xcelldiff > 0) {
+                if (xcelldiff < SPACE.XR) {
                     return;
+                } else {
+                    player.pp.body.x += xcelldiff;
                 }
+            }
+        }
+        else if (player.lastAction === 'up' && (newAction === 'left' || newAction === 'right')) {
+            if (ycelldiff > 0) {
+                if (ycelldiff > SPACE.YU) {
+                    return;
+                } else {
+                    player.pp.body.y -= ycelldiff;
+                }
+            }
+        }
+        else if (player.lastAction === 'down' && (newAction === 'left' || newAction === 'right')) {
+            if (ycelldiff > 0) {
+                if (ycelldiff < SPACE.YD) {
+                    return;
+                } else {
+                    player.pp.body.y += ycelldiff;
+                }
+            }
         }
 
         //  Reset the players velocity (movement)
