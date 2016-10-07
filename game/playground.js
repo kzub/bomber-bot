@@ -148,7 +148,7 @@ window.onload = function() {
         }
         else if (player.lastAction === 'right' && (newAction === 'up' || newAction === 'down')) {
             if (xcelldiff > 0) {
-                if (xcelldiff < SPACE.XR) {
+                if (xcelldiff > SPACE.XL) {
                     return;
                 } else {
                     player.pp.body.x += xcelldiff;
@@ -166,7 +166,7 @@ window.onload = function() {
         }
         else if (player.lastAction === 'down' && (newAction === 'left' || newAction === 'right')) {
             if (ycelldiff > 0) {
-                if (ycelldiff < SPACE.YD) {
+                if (ycelldiff > SPACE.YU) {
                     return;
                 } else {
                     player.pp.body.y += ycelldiff;
