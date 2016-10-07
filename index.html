@@ -5,9 +5,33 @@
         <title>OneTwoTrip BomberBots</title>
         <script src="lib/phaser.min.js"></script>
     </head>
+    <style>
+        #info {
+            position: fixed;
+            left: 10px;
+            /*width: 300px;*/
+            /*height: 660px;*/
+            /*background-color: black;*/
+        }
+        #game {
+            left: 310px;
+            position: fixed;
+        }
+    </style>
     <body>
+        <script type="text/javascript" src="game/globals.js"></script>
+        <script type="text/javascript" src="game/utils.js"></script>
+        <script type="text/javascript" src="game/player.js"></script>
+        <script type="text/javascript" src="game/bombs.js"></script>
+        <script type="text/javascript" src="game/dashboard.js"></script>
         <script type="text/javascript" src="bots/simple.js"></script>
         <script type="text/javascript" src="bots/zk.js"></script>
-        <script type="text/javascript" src="game/engine.js"></script>
-    </body>
+        <script type="text/javascript" src="bots/keyboard.js"></script>
+        <script type="text/javascript" src="game/playground.js"></script>
+        <div id="dashboard">
+            <!-- <div id="time"></div> -->
+        <div id="game"></div>
+            <!-- <textarea id="script"></textarea> -->
+        <!-- </div> -->
+    <!-- </body> -->
 </html>

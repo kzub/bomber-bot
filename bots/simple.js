@@ -13,7 +13,7 @@ var route = function(map){
 // Функция бота. Должна состоять из имени файла + слово Bot
 // На входе принимает данные о карте и других ботах/элементах
 // На выкоде команда к действию тип <string>
-function simpleBot(my_info, my_state, map, map_objects) {
+function simpleBot(my_info, my_state, map, map_objects, cursors) {
     // my_info  - информация об этом боте
     // my_state - Object в котором можно хранить временные данные бота
     // map - информация о карте и некоторые константы
@@ -28,11 +28,11 @@ function simpleBot(my_info, my_state, map, map_objects) {
     // my_info.y - координата на карте  в клетках
     // my_info.lastAction - последнее известное действие
     // my_info.nextBombTime - timestamp когда сможет поставить следующую бомбу
+    // my_info.playerSpeed - скорость игрока. в чем измеряется пока не понял))
+    // my_info.bombInterval - как часто можно ставить бомбу
 
     // map.width - размерность карты в клетках
     // map.height - размерность карты в клетках
-    // map.playerSpeed - скорость игрока. в чем измеряется пока не понял))
-    // map.bombInterval - как часто можно ставить бомбу
     // map.bombExpode - timestamp когда бомба взорвется;
     // map.bombVanish - timestamp когда бомба исчезнет после взрыва. можно проходить;
 
@@ -50,6 +50,8 @@ function simpleBot(my_info, my_state, map, map_objects) {
             // object.y
             // object.lastAction
             // object.nextBombTime
+            // object.playerSpeed
+            // object.bombInterval
         }
         else if (object.type === 'bomb') {
             // object.birth
