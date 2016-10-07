@@ -11,15 +11,16 @@ window.onload = function() {
         game.destroy();
     };
     glob_game = game;
-    
+
     var playerCount = 0;
+    const hetSpawnPoint = SequencedArray(SPAWN_POINTS);
     const addPlayer = function(name) {
         if (!window[name]) {
             console.log('not bot with name:', name);
             return;
         }
 
-        var point = getSequencedFromArray(SPAWN_POINTS);
+        var point = hetSpawnPoint();
         var plr = new Player(playerCount, game, point[0], point[1], window[name]);
 
         players.push(plr);
@@ -28,7 +29,7 @@ window.onload = function() {
     };
 
 
-    // a=document.getElementById('script');    
+    // a=document.getElementById('script');
     // a.onchange = function () {
     //     console.log(a.value);
     //     var script = document.createElement("script");
@@ -46,7 +47,7 @@ window.onload = function() {
     var map_objects_unsafe = []; // object with write access
     // readonly proxy object
     var map_objects = getReadOnlyProxy(map_objects_unsafe, 'Map objects modifications are forbidden');
-   
+
     function preload () {
         game.load.spritesheet('dude', '/bomberman/sprites/bomberman.png', 40, 60);
         game.load.spritesheet('bomb', '/bomberman/sprites/bomb2.png', 60, 60);
@@ -69,7 +70,7 @@ window.onload = function() {
         }
 
         addPlayer('keyboardBot');
-        
+
         // debug [do not use it]:
         p = players;
         pp = map_objects_unsafe;
@@ -138,38 +139,34 @@ window.onload = function() {
         var ycelldiff = player.pp.body.y % SPACE.Y;
 
         if (player.lastAction === 'left' && (newAction === 'up' || newAction === 'down')) {
-            if (xcelldiff > 0) {
-                if (xcelldiff > SPACE.XL) {
-                    return;
-                } else {
-                    player.pp.body.x -= xcelldiff;
-                }
+            if (xcelldiff > SPACE.XL) {
+                return;
+            } else {
+                player.pp.body.x = Math.floor(player.pp.body.x / SPACE.X) * SPACE.X;
             }
         }
         else if (player.lastAction === 'right' && (newAction === 'up' || newAction === 'down')) {
-            if (xcelldiff > 0) {
-                if (xcelldiff > SPACE.XL) {
+            if(xcelldiff){
+                if (xcelldiff < SPACE.XR) {
                     return;
                 } else {
-                    player.pp.body.x += xcelldiff;
+                    player.pp.body.x = Math.ceil(player.pp.body.x / SPACE.X) * SPACE.X;
                 }
             }
         }
         else if (player.lastAction === 'up' && (newAction === 'left' || newAction === 'right')) {
-            if (ycelldiff > 0) {
-                if (ycelldiff > SPACE.YU) {
-                    return;
-                } else {
-                    player.pp.body.y -= ycelldiff;
-                }
+            if (ycelldiff > SPACE.YU) {
+                return;
+            } else {
+                player.pp.body.y = Math.floor(player.pp.body.y / SPACE.Y) * SPACE.Y;;
             }
         }
         else if (player.lastAction === 'down' && (newAction === 'left' || newAction === 'right')) {
-            if (ycelldiff > 0) {
-                if (ycelldiff > SPACE.YU) {
+            if (ycelldiff) {
+                if (ycelldiff && ycelldiff < SPACE.YD) {
                     return;
                 } else {
-                    player.pp.body.y += ycelldiff;
+                    player.pp.body.y = Math.ceil(player.pp.body.y / SPACE.Y) * SPACE.Y;;
                 }
             }
         }
@@ -223,7 +220,7 @@ window.onload = function() {
 
     function update () {
         if(players.length <= 1){
-            game.paused = true;
+            // game.paused = true;
             setTimeout(function gameRestart() {
                 // game.paused = false;
                 // addPlayer('zkBot');

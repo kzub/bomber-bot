@@ -13,17 +13,14 @@ const getRandomFromArray = function (arr) {
     return arr[ Math.floor(Math.random()*(arr.length - 0.1)) ];
 };
 
-const getSequencedFromArray = function (arr) {
-    if (this.counter === undefined) {
-        this.counter = -1;
-    }
-    this.counter++;
-
-    if (this.counter % arr.length === 0) {
-        this.counter = 0;
-    }
-
-    return arr[this.counter];
+const SequencedArray = function (arr) {
+    var counter = 0;
+    return function(){
+        if (counter % arr.length === 0) {
+            counter = 0;
+        }
+        return arr[counter++];
+    };
 };
 
 

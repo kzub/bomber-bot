@@ -67,7 +67,7 @@ function simpleBot(my_info, my_state, map, map_objects, cursors) {
 
     //  bombs
     if (my_state.bomb === undefined || my_state.bomb < Date.now() ) {
-        my_state.bomb = Date.now() + map.bombInterval;
+        my_state.bomb = Date.now() + my_info.bombInterval;
         return 'bomb';
     }
 
@@ -83,20 +83,42 @@ function simpleBot(my_info, my_state, map, map_objects, cursors) {
 
     if (distance_y < 0) {
         if (map(x, y - 1) === map.wall) { // check if element above a wall
-            return 'down';
+            if (map(x - 1, y) === map.wall) {
+                return 'right';
+            } else {
+                return 'left';
+            }
         }
         return 'up';
     }
     else if (distance_y > 0) {
         if (map(x, y + 1) === map.wall) { // check if element below a wall
-            return 'up';
+            if (map(x - 1, y) === map.wall) {
+                return 'right';
+            } else {
+                return 'left';
+            }
         }
         return 'down';
     }
     else if (distance_x > 0) {
+        if (map(x + 1, y) === map.wall) { // check if element below a wall
+            if (map(x, y - 1) === map.wall) {
+                return 'down';
+            } else {
+                return 'up';
+            }
+        }
         return 'right';
     }
     else if (distance_x < 0) {
+        if (map(x - 1, y) === map.wall) { // check if element below a wall
+            if (map(x, y - 1) === map.wall) {
+                return 'down';
+            } else {
+                return 'up';
+            }
+        }
         return 'left';
     }
 

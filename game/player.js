@@ -1,3 +1,4 @@
+const getTint = SequencedArray(TINTS);
 const Player = function (id, game, x, y, controller) {
   var phaserPlayer = game.add.sprite(x * SPACE.X, y * SPACE.Y, 'dude', 4);
   game.physics.arcade.enable(phaserPlayer);
@@ -8,7 +9,7 @@ const Player = function (id, game, x, y, controller) {
   phaserPlayer.animations.add('up',   [6, 7, 8],  10, true);
   phaserPlayer.animations.add('down', [3, 4, 5],  10, true);
   phaserPlayer.animations.add('die',  [12, 13, 14, 15 ,16, 17, 18], 10, false);
-  phaserPlayer.tint = getSequencedFromArray(TINTS);
+  phaserPlayer.tint = getTint();
 
   function PlayerInternalState(){}
 
