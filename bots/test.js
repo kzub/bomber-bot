@@ -16,7 +16,7 @@ function testBot(my_info, my_state, map, map_objects, cursors) {
     // my_info.y - координата на карте  в клетках
     // my_info.lastAction - последнее известное действие
     // my_info.nextBombTime - timestamp когда сможет поставить следующую бомбу
-    // my_info.playerSpeed - скорость игрока. в чем измеряется пока не понял))
+    // my_info.speed - скорость игрока. в чем измеряется пока не понял))
     // my_info.bombInterval - как часто можно ставить бомбу
 
     // map.width - размерность карты в клетках
@@ -38,7 +38,7 @@ function testBot(my_info, my_state, map, map_objects, cursors) {
             // object.y
             // object.lastAction
             // object.nextBombTime
-            // object.playerSpeed
+            // object.speed
             // object.bombInterval
         }
         else if (object.type === 'bomb') {

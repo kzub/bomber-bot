@@ -258,7 +258,6 @@ function Player(id, game, x, y, controller){
     self.map.bombInterval = BOMBING_INTERVAL;
     self.map.bombExpode = BOMB_EXPOLDE;
     self.map.bombVanish = BOMB_EXPLOSION_FINISH;
-    self.map.playerSpeed = PLAYER_SPEED;
     // bot logic implementation
     self.controller = controller;
     // bot info

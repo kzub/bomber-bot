@@ -34,17 +34,21 @@ const Dashboard = function(width, height, target) {
     }
 
     function update() {
-        img.tint = Math.random() * 0xFFFFFF;
-        text_pos = (text_pos+1)%TEXT.SET.length;
-        symb = TEXT.SET[text_pos];
-        var new_text = '';
-        for(var c in text){
-            new_text += symb;
-        }
-        font.text = new_text;
+        // img.tint = Math.random() * 0xFFFFFF;
+        // text_pos = (text_pos+1)%TEXT.SET.length;
+        // symb = TEXT.SET[text_pos];
+        // var new_text = '';
+        // for(var c in text){
+        //     new_text += symb;
+        // }
+        // font.text = new_text;
     }
 
     self.destroy = function() {
         dashboard.destroy();
     };
+
+    self.print = function(text) {
+        font.text = text;
+    }
 };

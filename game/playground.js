@@ -167,19 +167,19 @@
         player.pp.body.velocity.y = 0;
 
         if (newAction === 'right') {
-            player.pp.body.velocity.x = player.playerSpeed;
+            player.pp.body.velocity.x = player.speed;
             player.pp.animations.play('right');
         }
         else if (newAction === 'left') {
-            player.pp.body.velocity.x = -player.playerSpeed;
+            player.pp.body.velocity.x = -player.speed;
             player.pp.animations.play('left');
         }
         else if (newAction === 'down') {
-            player.pp.body.velocity.y = player.playerSpeed;
+            player.pp.body.velocity.y = player.speed;
             player.pp.animations.play('down');
         }
         else if (newAction === 'up') {
-            player.pp.body.velocity.y = -player.playerSpeed;
+            player.pp.body.velocity.y = -player.speed;
             player.pp.animations.play('up');
         }
         else {
@@ -191,18 +191,15 @@
         player.lastAction = newAction;
     }
 
-    // setInterval(function() {
-    //     var times = [];
-    //     for (var p in players) {
-    //         times.push(players[p].stepTime);
-    //         players[p].stepTime = 0;
-    //         players[p].stepCount = 0;
-    //     }
-    //     // document.getElementById('time').innerHTML = times.join(',');
-
-    //     // font.text = "Alive:" + players.length;
-    // }, 1000);
-
+    if (0) {
+        setInterval(function() {
+            for (var p in players) {
+                var player = players[p];
+                player.bombRadius++;
+                glob_dash.print('radius:' + player.bombRadius);
+            }
+        }, 60000);
+    }
 
     function update () {
         if(players.length <= 1){
@@ -248,16 +245,18 @@
         var height = (MAP.length) * SPACE.Y;
 
         game = new Phaser.Game(width, height, Phaser.AUTO,
-                                    'game', { preload: preload, create: create, update: update });
+                   'game', { preload: preload, create: create, update: update });
+
+        dashboard = new Dashboard(width, height, dashboard);
 
         // debug
         glob_game = game;
-        dashboard = new Dashboard(width, height, dashboard);
+        glob_dash = dashboard;
 
         // debug [do not use it]:
         window.destroy = function (){
-            dashboard.destroy();
             game.destroy();
+            dashboard.destroy();
         };
 
         // a=document.getElementById('script');

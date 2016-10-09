@@ -26,8 +26,9 @@ const Player = function (name, controller, id, game, x, y) {
   self.y = y;
   self.lastAction = 'stop';
   self.nextBombTime = 0;
+  self.bombRadius = 1;
   self.bombInterval = BOMBING_INTERVAL;
-  self.playerSpeed = PLAYER_DEFAULT_SPEED;
+  self.speed = PLAYER_DEFAULT_SPEED;
 
   // visualization object
   self.pp = phaserPlayer;
@@ -37,7 +38,7 @@ const Player = function (name, controller, id, game, x, y) {
   self.info = new Proxy(self, {
       get: function(target, name){
           if (['id', 'type', 'x', 'y', 'lastAction', 'nextBombTime',
-          	 'bombInterval', 'playerSpeed'].indexOf(name) === -1) {
+              'bombInterval', 'bombRadius', 'speed'].indexOf(name) === -1) {
                 return;
           }
           return self[name];
