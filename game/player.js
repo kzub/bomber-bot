@@ -4,6 +4,10 @@ const Player = function (id, game, x, y, controller) {
   game.physics.arcade.enable(phaserPlayer);
   phaserPlayer.body.collideWorldBounds = true;
 
+  phaserPlayer.body.width = SPACE.X;
+  phaserPlayer.body.height = SPACE.Y;
+  // phaserPlayer.body.offset.x = -10;
+
   phaserPlayer.animations.add('left', [0, 1, 2],  10, true);
   phaserPlayer.animations.add('right',[9, 10, 11],10, true);
   phaserPlayer.animations.add('up',   [6, 7, 8],  10, true);

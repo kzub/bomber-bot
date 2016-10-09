@@ -133,35 +133,43 @@ window.onload = function() {
         var xcelldiff = player.pp.body.x % SPACE.X;
         var ycelldiff = player.pp.body.y % SPACE.Y;
 
-        if (player.lastAction === 'left' && (newAction === 'up' || newAction === 'down' || newAction === 'stop')) {
-            if (xcelldiff > SPACE.XL) {
-                return;
-            } else {
-                player.pp.body.x = Math.floor(player.pp.body.x / SPACE.X) * SPACE.X;
-            }
-        }
-        else if (player.lastAction === 'right' && (newAction === 'up' || newAction === 'down' || newAction === 'stop')) {
-            if(xcelldiff){
-                if (xcelldiff < SPACE.XR) {
+        if (player.lastAction === 'left') {
+            if (!newAction || ~['up', 'down', 'stop'].indexOf(newAction)) {
+                if (xcelldiff > SPACE.XL) {
                     return;
                 } else {
-                    player.pp.body.x = Math.ceil(player.pp.body.x / SPACE.X) * SPACE.X;
+                    player.pp.body.x = Math.floor(player.pp.body.x / SPACE.X) * SPACE.X;
                 }
             }
         }
-        else if (player.lastAction === 'up' && (newAction === 'left' || newAction === 'right' || newAction === 'stop')) {
-            if (ycelldiff > SPACE.YU) {
-                return;
-            } else {
-                player.pp.body.y = Math.floor(player.pp.body.y / SPACE.Y) * SPACE.Y;;
+        else if (player.lastAction === 'right') {
+            if (!newAction || ~['up', 'down', 'stop'].indexOf(newAction)) {
+                if(xcelldiff){
+                    if (xcelldiff < SPACE.XR) {
+                        return;
+                    } else {
+                        player.pp.body.x = Math.ceil(player.pp.body.x / SPACE.X) * SPACE.X;
+                    }
+                }
             }
         }
-        else if (player.lastAction === 'down' && (newAction === 'left' || newAction === 'right' || newAction === 'stop')) {
-            if (ycelldiff) {
-                if (ycelldiff && ycelldiff < SPACE.YD) {
+        else if (player.lastAction === 'up') {
+            if (!newAction || ~['left', 'right', 'stop'].indexOf(newAction)) {
+                if (ycelldiff > SPACE.YU) {
                     return;
                 } else {
-                    player.pp.body.y = Math.ceil(player.pp.body.y / SPACE.Y) * SPACE.Y;;
+                    player.pp.body.y = Math.floor(player.pp.body.y / SPACE.Y) * SPACE.Y;;
+                }
+            }
+        }
+        else if (player.lastAction === 'down') {
+            if (!newAction || ~['left', 'right', 'stop'].indexOf(newAction)) {
+                if (ycelldiff) {
+                    if (ycelldiff && ycelldiff < SPACE.YD) {
+                        return;
+                    } else {
+                        player.pp.body.y = Math.ceil(player.pp.body.y / SPACE.Y) * SPACE.Y;;
+                    }
                 }
             }
         }
