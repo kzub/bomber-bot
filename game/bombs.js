@@ -34,7 +34,7 @@ const makeBomb = function (player, map) {
             flame.position[x_or_y] = SPACE[x_or_y.toUpperCase()] * direction * i;
             var sprites = i == radius ? sprites_end : sprites_body;
             var animation = flame.animations
-                .add('explosion', sprites, 15, false)
+                .add('explosion', sprites, 12, false)
                 .play();
             bomb.add(flame);
 

@@ -29,7 +29,7 @@ const Dashboard = function(width, height, target) {
                                   TEXT.SET, TEXT.LETTERS_IN_ROW, 0, 0);
         
         img = dashboard.add.image(0, 0 /*dashboard.world.centerY*/, font);
-        font.text = 'Hello man';
+        font.text = 'BomberBot';
         // img.anchor.set(0.5, 1);
     }
 
