@@ -91,7 +91,7 @@ window.onload = function() {
         player.x = player.pp.body.x / SPACE.X;
         player.y = player.pp.body.y / SPACE.Y;
 
-        var stepTime = Date.now();
+        // var stepTime = Date.now();
         var newAction;
 
         try {
@@ -102,6 +102,10 @@ window.onload = function() {
                             map_objects,
                             cursors
                         );
+            if(!newAction){
+                return;
+            }
+
         }
         catch(e) {
             console.log('Player throw error:', e);
@@ -112,17 +116,8 @@ window.onload = function() {
             return;
         }
 
-        player.stepTime += (Date.now() - stepTime);
-        player.stepCount++;
-
-        if (!newAction || newAction === 'stop') {
-            player.pp.body.velocity.x = 0;
-            player.pp.body.velocity.y = 0;
-            player.pp.animations.stop();
-            player.pp.frame = 4;
-            player.lastAction = newAction;
-            return;
-        }
+        // player.stepTime += (Date.now() - stepTime);
+        // player.stepCount++;
 
         if (newAction == 'bomb') {
             if(Date.now() > player.nextBombTime) {
@@ -138,14 +133,14 @@ window.onload = function() {
         var xcelldiff = player.pp.body.x % SPACE.X;
         var ycelldiff = player.pp.body.y % SPACE.Y;
 
-        if (player.lastAction === 'left' && (newAction === 'up' || newAction === 'down')) {
+        if (player.lastAction === 'left' && (newAction === 'up' || newAction === 'down' || newAction === 'stop')) {
             if (xcelldiff > SPACE.XL) {
                 return;
             } else {
                 player.pp.body.x = Math.floor(player.pp.body.x / SPACE.X) * SPACE.X;
             }
         }
-        else if (player.lastAction === 'right' && (newAction === 'up' || newAction === 'down')) {
+        else if (player.lastAction === 'right' && (newAction === 'up' || newAction === 'down' || newAction === 'stop')) {
             if(xcelldiff){
                 if (xcelldiff < SPACE.XR) {
                     return;
@@ -154,14 +149,14 @@ window.onload = function() {
                 }
             }
         }
-        else if (player.lastAction === 'up' && (newAction === 'left' || newAction === 'right')) {
+        else if (player.lastAction === 'up' && (newAction === 'left' || newAction === 'right' || newAction === 'stop')) {
             if (ycelldiff > SPACE.YU) {
                 return;
             } else {
                 player.pp.body.y = Math.floor(player.pp.body.y / SPACE.Y) * SPACE.Y;;
             }
         }
-        else if (player.lastAction === 'down' && (newAction === 'left' || newAction === 'right')) {
+        else if (player.lastAction === 'down' && (newAction === 'left' || newAction === 'right' || newAction === 'stop')) {
             if (ycelldiff) {
                 if (ycelldiff && ycelldiff < SPACE.YD) {
                     return;

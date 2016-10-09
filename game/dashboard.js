@@ -9,7 +9,7 @@ const TEXT = {
 
 const Dashboard = function(width, height, target) {
     // game object
-    var info = new Phaser.Game(width, height, Phaser.AUTO, target,
+    var dashboard = new Phaser.Game(width, height, Phaser.AUTO, target,
                    { preload: preload, create: create, update: update });
 
     // variables
@@ -21,14 +21,14 @@ const Dashboard = function(width, height, target) {
 
     // functions
     function preload () {
-        info.load.image('font', TEXT.SPRITE_PATH);
+        dashboard.load.image('font', TEXT.SPRITE_PATH);
     }
 
     function create() {
-        font = info.add.retroFont('font', TEXT.LETTER_WIDTH, TEXT.LETTER_HEIGHT,
+        font = dashboard.add.retroFont('font', TEXT.LETTER_WIDTH, TEXT.LETTER_HEIGHT,
                                   TEXT.SET, TEXT.LETTERS_IN_ROW, 0, 0);
         
-        img = info.add.image(0, 0 /*info.world.centerY*/, font);
+        img = dashboard.add.image(0, 0 /*dashboard.world.centerY*/, font);
         font.text = 'Hello man';
         // img.anchor.set(0.5, 1);
     }
@@ -43,4 +43,8 @@ const Dashboard = function(width, height, target) {
         }
         font.text = new_text;
     }
+
+    self.destroy = function() {
+        dashboard.destroy();
+    };
 };
