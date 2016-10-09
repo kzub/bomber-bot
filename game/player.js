@@ -1,5 +1,5 @@
 const getTint = SequencedArray(TINTS);
-const Player = function (id, game, x, y, controller) {
+const Player = function (name, controller, id, game, x, y) {
   var phaserPlayer = game.add.sprite(x * SPACE.X, y * SPACE.Y, 'dude', 4);
   game.physics.arcade.enable(phaserPlayer);
   phaserPlayer.body.collideWorldBounds = true;
@@ -20,6 +20,7 @@ const Player = function (id, game, x, y, controller) {
   var self = this;
   // pubblic data
   self.id = id;
+  self.name = name;
   self.type = 'player';
   self.x = x;
   self.y = y;
@@ -35,7 +36,7 @@ const Player = function (id, game, x, y, controller) {
   // public data readonly accessor
   self.info = new Proxy(self, {
       get: function(target, name){
-          if (['id', 'type', 'x', 'y', 'lastAction', 'nextBombTime', 
+          if (['id', 'type', 'x', 'y', 'lastAction', 'nextBombTime',
           	 'bombInterval', 'playerSpeed'].indexOf(name) === -1) {
                 return;
           }
@@ -59,10 +60,6 @@ const Player = function (id, game, x, y, controller) {
   self.map.bombVanish = BOMB_EXPLOSION_FINISH;
   // bot logic implementation
   self.controller = controller;
-  // bot info
-  self.name = "bot";
-  self.stepTime = 0;
-  self.stepCount = 0;
 };
 
 const killPlayer = function (player) {
@@ -79,4 +76,30 @@ const killPlayer = function (player) {
   player.game.sound.add('hurt').play();
   player.dead = true;
 };
+
+const PlayersList = function () {
+  var self = this;
+  var list = [];
+
+  Object.defineProperty(self, "add",
+    { value: add, writable: false, enumerable: true, configurable: true });
+  Object.defineProperty(self, "iterator",
+    { value: iterator, writable: false, enumerable: true, configurable: true });
+
+  function add(obj) {
+    list.push(obj);
+  }
+
+  function Getter() {
+    var counter = 0;
+    return function () {
+      return list[counter++];
+    };
+  }
+
+  function iterator() {
+    return new Getter();
+  }
+};
+
 

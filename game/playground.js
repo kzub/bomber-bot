@@ -1,42 +1,4 @@
-window.onload = function() {
-    var width = (MAP[0].length) * SPACE.X;
-    var height = (MAP.length) * SPACE.Y;
-    var game   = new Phaser.Game(width, height, Phaser.AUTO,
-                                'game', { preload: preload, create: create, update: update });
-
-    var dashboard = new Dashboard(width, height, dashboard);
-    // debug [do not use it]:
-    destroy = function (){
-        dashboard.destroy();
-        game.destroy();
-    };
-    glob_game = game;
-
-    var playerCount = 0;
-    const hetSpawnPoint = SequencedArray(SPAWN_POINTS);
-    const addPlayer = function(name) {
-        if (!window[name]) {
-            console.log('not bot with name:', name);
-            return;
-        }
-
-        var point = hetSpawnPoint();
-        var plr = new Player(playerCount, game, point[0], point[1], window[name]);
-
-        players.push(plr);
-        map_objects_unsafe.push(plr.info);
-        playerCount++;
-    };
-
-
-    // a=document.getElementById('script');
-    // a.onchange = function () {
-    //     console.log(a.value);
-    //     var script = document.createElement("script");
-    //     script.innerHTML = a.value;
-    //     document.head.appendChild(script);
-    // }
-
+(function isolation(){
     // var font;
     var cursors;
     var player;
@@ -45,8 +7,38 @@ window.onload = function() {
     var pp_bombs = [];
     var pp_bricks;
     var map_objects_unsafe = []; // object with write access
-    // readonly proxy object
     var map_objects = getReadOnlyProxy(map_objects_unsafe, 'Map objects modifications are forbidden');
+    var availableBots = new PlayersList();
+    var getSpawnPoint = SequencedArray(SPAWN_POINTS);
+    var playerCount = 0;
+    var game;
+    var dashboard;
+
+    // export readonly addBot function:
+    Object.defineProperty(window, "addBot",
+        { value: availableBots.add, writable: false, enumerable: true, configurable: true });
+
+
+    var addPlayers = function(name) {
+        var it = availableBots.iterator();
+        for(;;) {
+            var player = it();
+            if (!player) {
+                break;
+            }
+
+            if (name && player.name !== name) {
+                continue;
+            }
+
+            var point = getSpawnPoint();
+            var plr = new Player(player.name, player.routine, playerCount++,
+                                 game, point[0], point[1]);
+
+            players.push(plr);
+            map_objects_unsafe.push(plr.info);
+        }
+    };
 
     function preload () {
         game.load.spritesheet('dude', '/bomberman/sprites/bomberman.png', 40, 60);
@@ -66,10 +58,10 @@ window.onload = function() {
         pp_bricks = makeBricks(game);
 
         for(var i = 0; i < 1; i++) {
-            addPlayer('simpleBot');
+            addPlayers('simple');
         }
 
-        addPlayer('keyboardBot');
+        addPlayers('keyboard');
 
         // debug [do not use it]:
         p = players;
@@ -105,7 +97,6 @@ window.onload = function() {
             if(!newAction){
                 return;
             }
-
         }
         catch(e) {
             console.log('Player throw error:', e);
@@ -115,9 +106,6 @@ window.onload = function() {
             killPlayer(player.pp);
             return;
         }
-
-        // player.stepTime += (Date.now() - stepTime);
-        // player.stepCount++;
 
         if (newAction == 'bomb') {
             if(Date.now() > player.nextBombTime) {
@@ -158,7 +146,7 @@ window.onload = function() {
                 if (ycelldiff > SPACE.YU) {
                     return;
                 } else {
-                    player.pp.body.y = Math.floor(player.pp.body.y / SPACE.Y) * SPACE.Y;;
+                    player.pp.body.y = Math.floor(player.pp.body.y / SPACE.Y) * SPACE.Y;
                 }
             }
         }
@@ -168,7 +156,7 @@ window.onload = function() {
                     if (ycelldiff && ycelldiff < SPACE.YD) {
                         return;
                     } else {
-                        player.pp.body.y = Math.ceil(player.pp.body.y / SPACE.Y) * SPACE.Y;;
+                        player.pp.body.y = Math.ceil(player.pp.body.y / SPACE.Y) * SPACE.Y;
                     }
                 }
             }
@@ -203,11 +191,6 @@ window.onload = function() {
         player.lastAction = newAction;
     }
 
-    // TODO:
-    // biger bombs after 60 sec
-    // game finish
-    // print timings
-
     // setInterval(function() {
     //     var times = [];
     //     for (var p in players) {
@@ -226,8 +209,6 @@ window.onload = function() {
             // game.paused = true;
             setTimeout(function gameRestart() {
                 // game.paused = false;
-                // addPlayer('zkBot');
-                // addPlayer('zkBot');
                 // addPlayer('zkBot');
             }, 500);
         }
@@ -258,4 +239,35 @@ window.onload = function() {
         }
     }
 
-};
+    // TODO:
+    // biger bombs after 60 sec
+    // game finish
+    // print timings
+    window.onload = function() {
+        var width = (MAP[0].length) * SPACE.X;
+        var height = (MAP.length) * SPACE.Y;
+
+        game = new Phaser.Game(width, height, Phaser.AUTO,
+                                    'game', { preload: preload, create: create, update: update });
+
+        // debug
+        glob_game = game;
+        dashboard = new Dashboard(width, height, dashboard);
+
+        // debug [do not use it]:
+        window.destroy = function (){
+            dashboard.destroy();
+            game.destroy();
+        };
+
+        // a=document.getElementById('script');
+        // a.onchange = function () {
+        //     console.log(a.value);
+        //     var script = document.createElement("script");
+        //     script.innerHTML = a.value;
+        //     document.head.appendChild(script);
+        // }
+    };
+})();
+
+
