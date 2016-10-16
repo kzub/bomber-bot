@@ -5,14 +5,25 @@
     var pause = 0;
     var players = [];
     var pp_bombs = [];
-    var pp_bricks;
     var map_objects_unsafe = []; // object with write access
+    var pp_bricks;
     var map_objects = getReadOnlyProxy(map_objects_unsafe, 'Map objects modifications are forbidden');
     var availableBots = new PlayersList();
     var getSpawnPoint = SequencedArray(SPAWN_POINTS);
-    var playerCount = 0;
     var game;
     var dashboard;
+    var updateDashboard;
+    var updateDashboardId;
+    var startTime = 0;
+    var bomb_radius = 1;
+    var round_over = false;
+    var allow_bombing = true;
+    var game_wins_to_finish = 3;
+    var activePlayers = [{ name:'simple', wins: 0},
+                         { name:'keys', wins: 0}];
+    var bomb_max_radius = 13;
+    var bomb_expand_after_seconds = 60;
+    var bomb_expand_every_seconds = 10;
 
     // export readonly addBot function:
     Object.defineProperty(window, "addBot",
@@ -21,23 +32,33 @@
 
     var addPlayers = function(name) {
         var it = availableBots.iterator();
+        var findByName = function(ap){
+            return ap.name === name;
+        };
+
         for(;;) {
-            var player = it();
-            if (!player) {
+            var bot = it();
+            if (!bot) {
                 break;
             }
 
-            if (name && player.name !== name) {
+            if (name && bot.name !== name) {
                 continue;
             }
 
             var point = getSpawnPoint();
-            var plr = new Player(player.name, player.routine, playerCount++,
+            var plr = new Player(bot.name, bot.routine, players.length,
                                  game, point[0], point[1]);
 
+            plr.wins = activePlayers.find(findByName).wins;
             players.push(plr);
             map_objects_unsafe.push(plr.info);
+            dashboard.addItem("player" + plr.id, plr.name, plr.wins, { align: "right"} );
         }
+        // debug [do not use it]:
+        p = players;
+        m = map_objects_unsafe;
+        b = pp_bombs;
     };
 
     function preload () {
@@ -54,19 +75,8 @@
         cursors.space = game.input.keyboard.addKeys({ space: Phaser.KeyCode.SPACEBAR}).space;
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
-
         pp_bricks = makeBricks(game);
-
-        for(var i = 0; i < 1; i++) {
-            addPlayers('simple');
-        }
-
-        addPlayers('keyboard');
-
-        // debug [do not use it]:
-        p = players;
-        pp = map_objects_unsafe;
-        // game.paused = true;
+        activePlayers.forEach(ap => addPlayers(ap.name));
     }
 
     function updatePlayer(player) {
@@ -99,7 +109,7 @@
             }
         }
         catch(e) {
-            console.log('Player throw error:', e);
+            console.log('Player', player.name, ' throw error:', e);
             player.pp.body.velocity.x = 0;
             player.pp.body.velocity.y = 0;
             player.pp.animations.stop();
@@ -107,7 +117,7 @@
             return;
         }
 
-        if (newAction == 'bomb') {
+        if (newAction == 'bomb' && allow_bombing) {
             if(Date.now() > player.nextBombTime) {
                 var bomb = makeBomb(player);
                 map_objects_unsafe.push(bomb.info);
@@ -191,23 +201,59 @@
         player.lastAction = newAction;
     }
 
-    if (0) {
-        setInterval(function() {
-            for (var p in players) {
-                var player = players[p];
-                player.bombRadius++;
-                glob_dash.print('radius:' + player.bombRadius);
-            }
-        }, 60000);
+    function stopPlayer(player) {
+        player.pp.body.velocity.x = 0;
+        player.pp.body.velocity.y = 0;
+        player.pp.animations.stop();
+        player.pp.frame = 4;
+    }
+
+    function gameRestart() {
+        startTime = 0;
+        bomb_radius = 1;
+        if (!updateDashboardId) {
+            updateDashboardId = setInterval(updateDashboard, 1000);
+            updateDashboard();
+        }
+
+        players.forEach(p => removePlayer(p.pp));
+        pp_bombs.forEach(b => b.callAll("kill"));
+        players = [];
+        pp_bombs = [];
+        map_objects_unsafe = [];
+
+        activePlayers.forEach(ap => addPlayers(ap.name));
+        round_over = false;
+        allow_bombing = true;
     }
 
     function update () {
         if(players.length <= 1){
-            // game.paused = true;
-            setTimeout(function gameRestart() {
-                // game.paused = false;
-                // addPlayer('zkBot');
-            }, 500);
+            if (round_over) {
+                return;
+            }
+            allow_bombing = false;
+            if(pp_bombs.length === 0) {
+                var winner = players[0];
+                if (winner) {
+                    var apWinner = activePlayers.find(ap => ap.name === winner.name);
+                    winner.wins = ++apWinner.wins;
+                    dashboard.setItem('player' + winner.id, winner.wins);
+                    stopPlayer(winner);
+                }
+
+                round_over = true;
+                if (winner && winner.wins >= game_wins_to_finish) {
+                    game.paused = true;
+                    dashboard.pause();
+                    return;
+                }
+
+                clearInterval(updateDashboardId);
+                updateDashboardId = undefined;
+                setTimeout(gameRestart, 1500);
+                return;
+            }
         }
 
         for (let idx in players) {
@@ -228,16 +274,21 @@
         }
 
         // remove exploded bombs
-        for(let id in map_objects_unsafe){
+        for (var id in map_objects_unsafe) {
             if (map_objects_unsafe[id].type === 'bomb' &&
-               !map_objects_unsafe[id].exists) {
+               !map_objects_unsafe[id].alive) {
                     map_objects_unsafe.splice(id, 1);
             }
         }
+        for (var bid in pp_bombs) {
+            if (!pp_bombs[bid].alive) {
+                pp_bombs.splice(bid, 1);
+            }
+        }
+
     }
 
     // TODO:
-    // biger bombs after 60 sec
     // game finish
     // print timings
     window.onload = function() {
@@ -258,6 +309,32 @@
             game.destroy();
             dashboard.destroy();
         };
+
+        updateDashboard = function () {
+            startTime++;
+            var minutes = Math.floor(startTime/60);
+            var seconds = startTime%60;
+            dashboard.setItem('time', [zeroPad(minutes, 2), zeroPad(seconds, 2)].join("-"));
+
+            if(startTime >= bomb_expand_after_seconds &&
+               startTime % bomb_expand_every_seconds === 0 &&
+               bomb_radius < bomb_max_radius) {
+                    bomb_radius++;
+                    dashboard.setItem('bomb_radius', bomb_radius);
+                    for (var p in players) {
+                        var player = players[p];
+                        if(player.bombRadius < bomb_radius) {
+                            player.bombRadius = bomb_radius;
+                        }
+                    }
+            }
+
+            for (var pid in players) {
+                dashboard.setItem('player' + players[pid].id, players[pid].wins);
+            }
+        };
+        updateDashboardId = setInterval(updateDashboard, 1000);
+
 
         // a=document.getElementById('script');
         // a.onchange = function () {

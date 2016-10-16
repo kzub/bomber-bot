@@ -1,7 +1,7 @@
 (function isolation(){
     // добавить бота в список доступных ботов надо так:
     addBot({
-        name: "keyboard",
+        name: "keys",
         routine: keyboardBot
     });
     // Функция бота. Должна состоять из имени файла + слово Bot

@@ -27,6 +27,7 @@ const Player = function (name, controller, id, game, x, y) {
   self.lastAction = 'stop';
   self.nextBombTime = 0;
   self.bombRadius = 1;
+  self.wins = 0;
   self.bombInterval = BOMBING_INTERVAL;
   self.speed = PLAYER_DEFAULT_SPEED;
 
@@ -78,6 +79,14 @@ const killPlayer = function (player) {
   player.dead = true;
 };
 
+const removePlayer = function (player) {
+  if(player.dead){
+      return;
+  }
+  player.dead = true;
+  player.kill();
+};
+
 const PlayersList = function () {
   var self = this;
   var list = [];
@@ -88,6 +97,18 @@ const PlayersList = function () {
     { value: iterator, writable: false, enumerable: true, configurable: true });
 
   function add(obj) {
+    if (!obj || !obj.name || !obj.routine) {
+      console.error('wrong bot format');
+      return;
+    }
+
+    obj.name = obj.name.slice(0, 7);
+
+    if (list.filter(b => b.name === obj.name).length) {
+      console.error('bot with this name already exists');
+      return;
+    }
+
     list.push(obj);
   }
 

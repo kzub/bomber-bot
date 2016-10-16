@@ -1,4 +1,4 @@
-const makeBomb = function (player, map) {
+const makeBomb = function (player) {
     var pp = player.pp;
     var map = player.map;
     var game = pp.game;
@@ -24,7 +24,7 @@ const makeBomb = function (player, map) {
 
     function addFlames(x_or_y, direction, sprites_body, sprites_end, callback) {
         var xm = x_or_y === 'x' ? 1 : 0;
-        var ym = x_or_y === 'y' ? 1 : 0;;
+        var ym = x_or_y === 'y' ? 1 : 0;
 
         for(var i = 1; i <= radius; i++){
             if (map(map_x + xm * direction * i, map_y + ym * direction * i) === WALL) {

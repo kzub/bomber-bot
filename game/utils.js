@@ -46,3 +46,18 @@ const makeBricks = function(game) {
     bricks.setAll('body.immovable', true);
     return bricks;
 };
+
+const zeroPad = function(str, pad) {
+    if (str === undefined) { return; }
+    if (typeof str != "string") {
+        str = String(str);
+    }
+    if (str.length >= pad) {
+        return str;
+    }
+
+    for (var idx = str.length; idx < pad; idx++) {
+        str = "0" + str;
+    }
+    return str;
+};
