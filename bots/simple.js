@@ -40,6 +40,13 @@
         // map.bombExpode - timestamp когда бомба взорвется;
         // map.bombVanish - timestamp когда бомба исчезнет после взрыва. можно проходить;
 
+        // print info obout objects ->
+        // var dbginfo = [];
+        // map_objects.forEach(o => dbginfo.push(
+        //     o.name + ':' + o.type +
+        //     '(' + Math.round(o.x) + ',' + Math.round(o.y) +')'));
+        // console.log(dbginfo.join(' - '));
+
         for (var p in map_objects) {
             var object = map_objects[p];
             if (object.type === 'player' ) {

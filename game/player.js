@@ -38,7 +38,7 @@ const Player = function (name, controller, id, game, x, y) {
   // public data readonly accessor
   self.info = new Proxy(self, {
       get: function(target, name){
-          if (['id', 'type', 'x', 'y', 'lastAction', 'nextBombTime',
+          if (['id', 'name', 'type', 'x', 'y', 'lastAction', 'nextBombTime',
               'bombInterval', 'bombRadius', 'speed'].indexOf(name) === -1) {
                 return;
           }

@@ -15,6 +15,7 @@ const makeBomb = function (player) {
         exists: true,
         type: 'bomb',
         owner: player.id,
+        name: player.name,
         x: map_x,
         y: map_y,
         birth: bomb_birth,
