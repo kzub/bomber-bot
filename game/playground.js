@@ -277,7 +277,8 @@
         // remove exploded bombs
         for (var id in map_objects_unsafe) {
             if (map_objects_unsafe[id].type === 'bomb' &&
-               !map_objects_unsafe[id].exists) {                    map_objects_unsafe.splice(id, 1);
+               !map_objects_unsafe[id].exists) {
+                    map_objects_unsafe.splice(id, 1);
             }
         }
         for (var bid in pp_bombs) {
