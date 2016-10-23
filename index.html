@@ -17,6 +17,23 @@
             left: 310px;
             position: fixed;
         }
+        #scriptloader {
+            background-color: white;
+            padding: 20px;
+            position: fixed;
+            left: 100px;
+            top: 100px;
+            visibility: hidden;
+        }
+        #textScriptBody {
+            width: 800px;
+            height: 400px;
+        }
+
+        #btnScriptLoad, #btnScriptCancel {
+            width: 150px;
+            height: 30px;
+        }
     </style>
     <body>
         <script type="text/javascript" src="game/globals.js"></script>
@@ -25,14 +42,18 @@
         <script type="text/javascript" src="game/bombs.js"></script>
         <script type="text/javascript" src="game/dashboard.js"></script>
         <script type="text/javascript" src="game/playground.js"></script>
-        <script type="text/javascript" src="bots/simple.js"></script>
-        <script type="text/javascript" src="bots/zk.js"></script>
-        <script type="text/javascript" src="bots/test.js"></script>
-        <script type="text/javascript" src="bots/keyboard.js"></script>
+        <!-- <script type="text/javascript" src="game/autostart.js"></script> -->
+
         <div id="dashboard">
-            <!-- <div id="time"></div> -->
         <div id="game"></div>
-            <!-- <textarea id="script"></textarea> -->
-        <!-- </div> -->
-    <!-- </body> -->
+        <div id="scriptloader">
+            <div>Paste bot script into text area below. Examples: 
+                <a href="bots/simple.js" target="_blank">Simplebot</a>
+                <a href="bots/keyboard.js" target="_blank">Keyboard control</a>
+            </div>
+            <textarea id="textScriptBody"></textarea><br>
+            <button id="btnScriptLoad">Load</button>
+            <button id="btnScriptCancel">Cancel</button>
+        </div>
+    </body>
 </html>

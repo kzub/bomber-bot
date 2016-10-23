@@ -24,9 +24,11 @@
     var bomb_expand_after_seconds = 60;
     var bomb_expand_every_seconds = 10;
 
-    // export readonly addBot function:
+    // export readonly functions:
     Object.defineProperty(window, "addBot",
         { value: availableBots.add, writable: false, enumerable: true, configurable: true });
+    Object.defineProperty(window, "injectBotScript",
+        { value: injectBotScript, writable: false, enumerable: true, configurable: true });
 
 
     var addPlayers = function(activeplayer) {
@@ -45,7 +47,8 @@
             plr.wins = activeplayer.wins;
             players.push(plr);
             map_objects_unsafe.push(plr.info);
-            dashboard.addItem("player" + plr.id, plr.name, plr.wins, { align: "right"} );
+            dashboard.addItem("player" + plr.id, plr.name, plr.wins, 
+                { align: "right", tint: getTint(plr.id) });
         }
         // debug [do not use it]:
         p = players;
@@ -68,7 +71,16 @@
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
         pp_bricks = makeBricks(game);
+
         game.paused = true;
+        
+        if (typeof autoStartBots !== 'undefined') {
+            autoStartBots.forEach(b => {
+                console.log('auto adding bot:', b.name);
+                injectBotScript(b.name, b.filename);
+            });
+            setTimeout(onGoClick, 200);
+        }
     }
 
     function updatePlayer(player) {
@@ -201,6 +213,7 @@
     }
 
     function gameRestart() {
+        console.log('game restart');
         startTime = 0;
         resetBombRadius();
 
@@ -279,17 +292,33 @@
                 pp_bombs.splice(bid, 1);
             }
         }
-
     }
 
+    function showScriptLoader(show){
+        if (show === false) {
+            document.getElementById('scriptloader').style.visibility = 'hidden';
+        } else {
+            document.getElementById('scriptloader').style.visibility = 'visible';
+        }
+    }
 
-    function onAddBotClick() {
-        if (activePlayers.length === 0)
-            activePlayers.push({ id: activePlayers.length, name:'keys', wins: 0});
-        else activePlayers.push({ id: activePlayers.length, name:'simple', wins: 0});
-                        // { name:'keys', wins: 0}
+    function injectBotScript(name, filename) {
+        var script = document.createElement("script");
+        if (filename) {
+            script.src = filename;
+        } else {
+            var text = document.getElementById('textScriptBody');
+            script.innerHTML = text.value;
+            showScriptLoader(false);
+        }
+        document.head.appendChild(script);
 
-        addPlayers(activePlayers[activePlayers.length - 1]);
+        // add as player after script loaded
+        setTimeout(function() {
+            var bot = filename ? availableBots.get(name) : availableBots.last();
+            activePlayers.push({id: activePlayers.length, name: bot.name, wins: 0});
+            addPlayers(activePlayers[activePlayers.length - 1]);
+        }, 150);
     }
 
     function onGoClick() {
@@ -341,6 +370,10 @@
                    'game', { preload: preload, create: create, update: update });
 
         dashboard = new Dashboard(width, height, dashboard);
+        document.getElementById('btnScriptLoad').onclick = injectBotScript;
+        document.getElementById('btnScriptCancel').onclick = function(){
+            showScriptLoader(false);
+        };
 
         // debug [do not use it]:
         glob_game = game;
@@ -350,15 +383,8 @@
             dashboard.destroy();
         };
 
-        dashboard.addButtonListener('btnAddBot', onAddBotClick);
+        dashboard.addButtonListener('btnAddBot', showScriptLoader);
         dashboard.addButtonListener('btnGo', onGoClick);
-        // a=document.getElementById('script');
-        // a.onchange = function () {
-        //     console.log(a.value);
-        //     var script = document.createElement("script");
-        //     script.innerHTML = a.value;
-        //     document.head.appendChild(script);
-        // }
     };
 })();
 

@@ -82,18 +82,15 @@ const Dashboard = function(width, height, target) {
                     }
                 }
                 item.font.text = prefix + value;
-                // item.img.tint = Math.random() * 0xFFFFFF;
+                if (item.tint) {
+                    item.img.tint = item.tint;
+                }
             }
         }
     }
 
     self.destroy = function() {
         dashboard.destroy();
-    };
-
-    self.print = function(text) {
-        // if(!font){ return font; }
-        // font.text = text;
     };
 
     self.addButtonListener = function(key, func){
@@ -114,22 +111,26 @@ const Dashboard = function(width, height, target) {
     };
 
     self.addItem = function(name, prefix, value, options) {
+        // update existing
         for (var idx in items) {
             var item = items[idx];
             if(item.name === name){
                 item.prefix = String(prefix);
                 item.value = String(value);
                 item.align = options && options.align;
+                item.tint = options && options.tint;
                 item.need_update = true;
                 return;
             }
         }
 
+        // add new
         var new_item = {
             name: name,
             prefix: String(prefix),
             value: String(value),
-            align: options && options.align
+            align: options && options.align,
+            tint: options && options.tint
         };
         createFontInItem(new_item);
         items.push(new_item);

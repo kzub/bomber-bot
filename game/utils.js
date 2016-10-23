@@ -15,7 +15,11 @@ const getRandomFromArray = function (arr) {
 
 const SequencedArray = function (arr) {
     var counter = 0;
-    return function(){
+    return function(n){
+        if (n !== undefined ) {
+            return arr[n % arr.length];
+        }
+
         if (counter % arr.length === 0) {
             counter = 0;
         }

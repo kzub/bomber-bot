@@ -13,7 +13,7 @@ const Player = function (name, controller, id, game, x, y) {
   phaserPlayer.animations.add('up',   [6, 7, 8],  10, true);
   phaserPlayer.animations.add('down', [3, 4, 5],  10, true);
   phaserPlayer.animations.add('die',  [12, 13, 14, 15 ,16, 17, 18], 10, false);
-  phaserPlayer.tint = getTint();
+  phaserPlayer.tint = getTint(id);
 
   function PlayerInternalState(){}
 
@@ -95,6 +95,10 @@ const PlayersList = function () {
     { value: add, writable: false, enumerable: true, configurable: true });
   Object.defineProperty(self, "iterator",
     { value: iterator, writable: false, enumerable: true, configurable: true });
+  Object.defineProperty(self, "last",
+    { value: last, writable: false, enumerable: true, configurable: true });
+  Object.defineProperty(self, "get",
+    { value: get, writable: false, enumerable: true, configurable: true });
 
   function add(obj) {
     if (!obj || !obj.name || !obj.routine) {
@@ -121,6 +125,22 @@ const PlayersList = function () {
 
   function iterator() {
     return new Getter();
+  }
+
+  function last() {
+    if (list.length === 0) {
+      return;
+    }
+    return list[list.length - 1];
+  }
+
+  function get(name) {
+    var bot = list.filter(b => b.name === name);
+    if (bot.length === 0) {
+      throw 'no bot found';
+    }
+
+    return bot[0];
   }
 };
 
