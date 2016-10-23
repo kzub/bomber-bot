@@ -4,7 +4,7 @@
         name: "keys",
         routine: keyboardBot
     });
-    // Функция бота. Должна состоять из имени файла + слово Bot
+    // Функция бота.
     // На входе принимает данные о карте и других ботах/элементах
     // На выкоде команда к действию тип <string>
     function keyboardBot(my_info, my_state, map, map_objects, cursors) {

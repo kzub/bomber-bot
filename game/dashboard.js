@@ -33,14 +33,26 @@ const Dashboard = function(width, height, target) {
     var SPACE_Y = 60;
     var row_count = 0;
     var default_items = items.length;
+    var buttonListeners = [];
 
 
     // functions
     function preload () {
         dashboard.load.image('font', TEXT.SPRITE_PATH);
+        dashboard.load.spritesheet('btnAddBot', 'sprites/buttons_add.png', 200, 50);
+        dashboard.load.spritesheet('btnGo', 'sprites/buttons_go.png', 200, 50);
     }
 
-    function createFontInItem(item){
+    function create() {
+        for (var idx in items) {
+            var item = items[idx];
+            createFontInItem(item);
+        }
+        dashboard.add.button(50, height - 170, 'btnAddBot', actionOnClick, this, 1, 0, 2);
+        dashboard.add.button(50, height - 100, 'btnGo', actionOnClick, this, 1, 0, 2);
+    }
+
+    function createFontInItem(item) {
         item.font = dashboard.add.retroFont('font',
                           TEXT.LETTER_WIDTH, TEXT.LETTER_HEIGHT,
                           TEXT.SET, TEXT.LETTERS_IN_ROW, 0, 0);
@@ -49,10 +61,11 @@ const Dashboard = function(width, height, target) {
         item.need_update = true;
     }
 
-    function create() {
-        for (var idx in items) {
-            var item = items[idx];
-            createFontInItem(item);
+    function actionOnClick(item) {
+        for (var i in buttonListeners) {
+            if (item.key == buttonListeners[i].key) {
+                buttonListeners[i].func();
+            }
         }
     }
 
@@ -82,6 +95,12 @@ const Dashboard = function(width, height, target) {
         // if(!font){ return font; }
         // font.text = text;
     };
+
+    self.addButtonListener = function(key, func){
+        if (typeof func === 'function') {
+            buttonListeners.push({key: key, func: func});
+        }
+    }
 
     self.setItem = function(name, value) {
         for (var idx in items) {

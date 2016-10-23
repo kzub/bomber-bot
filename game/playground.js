@@ -19,8 +19,7 @@
     var round_over = false;
     var allow_bombing = true;
     var game_wins_to_finish = 3;
-    var activePlayers = [{ name:'simple', wins: 0},
-                         { name:'keys', wins: 0}];
+    var activePlayers = [];
     var bomb_max_radius = 13;
     var bomb_expand_after_seconds = 60;
     var bomb_expand_every_seconds = 10;
@@ -30,27 +29,20 @@
         { value: availableBots.add, writable: false, enumerable: true, configurable: true });
 
 
-    var addPlayers = function(name) {
+    var addPlayers = function(activeplayer) {
         var it = availableBots.iterator();
-        var findByName = function(ap){
-            return ap.name === name;
-        };
 
         for(;;) {
             var bot = it();
-            if (!bot) {
-                break;
-            }
-
-            if (name && bot.name !== name) {
-                continue;
-            }
+            if (!bot) { break; }
+            if (!bot.name) { console.error('No bot name specified'); break; }
+            if (bot.name !== activeplayer.name) { continue; }
 
             var point = getSpawnPoint();
-            var plr = new Player(bot.name, bot.routine, players.length,
+            var plr = new Player(bot.name, bot.routine, activeplayer.id,
                                  game, point[0], point[1]);
 
-            plr.wins = activePlayers.find(findByName).wins;
+            plr.wins = activeplayer.wins;
             players.push(plr);
             map_objects_unsafe.push(plr.info);
             dashboard.addItem("player" + plr.id, plr.name, plr.wins, { align: "right"} );
@@ -76,7 +68,7 @@
 
         game.physics.startSystem(Phaser.Physics.ARCADE);
         pp_bricks = makeBricks(game);
-        activePlayers.forEach(ap => addPlayers(ap.name));
+        game.paused = true;
     }
 
     function updatePlayer(player) {
@@ -210,7 +202,8 @@
 
     function gameRestart() {
         startTime = 0;
-        bomb_radius = 1;
+        resetBombRadius();
+
         if (!updateDashboardId) {
             updateDashboardId = setInterval(updateDashboard, 1000);
             updateDashboard();
@@ -223,7 +216,7 @@
         map_objects_unsafe = [];
         map_objects = getReadOnlyProxy(map_objects_unsafe, 'Map objects modifications are forbidden');
 
-        activePlayers.forEach(ap => addPlayers(ap.name));
+        activePlayers.forEach(ap => addPlayers(ap));
         round_over = false;
         allow_bombing = true;
     }
@@ -237,7 +230,7 @@
             if(pp_bombs.length === 0) {
                 var winner = players[0];
                 if (winner) {
-                    var apWinner = activePlayers.find(ap => ap.name === winner.name);
+                    var apWinner = activePlayers.find(ap => ap.id === winner.id);
                     winner.wins = ++apWinner.wins;
                     dashboard.setItem('player' + winner.id, winner.wins);
                     stopPlayer(winner);
@@ -289,9 +282,57 @@
 
     }
 
-    // TODO:
-    // game finish
-    // print timings
+
+    function onAddBotClick() {
+        if (activePlayers.length === 0)
+            activePlayers.push({ id: activePlayers.length, name:'keys', wins: 0});
+        else activePlayers.push({ id: activePlayers.length, name:'simple', wins: 0});
+                        // { name:'keys', wins: 0}
+
+        addPlayers(activePlayers[activePlayers.length - 1]);
+    }
+
+    function onGoClick() {
+        if (game.paused) {
+            updateDashboardId = setInterval(updateDashboard, 1000);
+        }
+        game.paused = false;
+    }
+
+    function resetBombRadius() {
+        bomb_radius = 0;
+        increaseBombRadius();
+    }
+
+    function increaseBombRadius() {
+        bomb_radius++;
+        dashboard.setItem('bomb_radius', bomb_radius);
+        for (var p in players) {
+            var player = players[p];
+            if (player.bombRadius < bomb_radius) {
+                player.bombRadius = bomb_radius;
+            }
+        }
+    }
+
+    updateDashboard = function() {
+        startTime++;
+        var minutes = Math.floor(startTime / 60);
+        var seconds = startTime % 60;
+        dashboard.setItem('time',
+            [zeroPad(minutes, 2), zeroPad(seconds, 2)].join("-"));
+
+        if(startTime >= bomb_expand_after_seconds &&
+           startTime % bomb_expand_every_seconds === 0 &&
+           bomb_radius < bomb_max_radius) {
+                increaseBombRadius();
+        }
+
+        for (var pid in players) {
+            dashboard.setItem('player' + players[pid].id, players[pid].wins);
+        }
+    };
+
     window.onload = function() {
         var width = (MAP[0].length) * SPACE.X;
         var height = (MAP.length) * SPACE.Y;
@@ -301,42 +342,16 @@
 
         dashboard = new Dashboard(width, height, dashboard);
 
-        // debug
+        // debug [do not use it]:
         glob_game = game;
         glob_dash = dashboard;
-
-        // debug [do not use it]:
         window.destroy = function (){
             game.destroy();
             dashboard.destroy();
         };
 
-        updateDashboard = function () {
-            startTime++;
-            var minutes = Math.floor(startTime/60);
-            var seconds = startTime%60;
-            dashboard.setItem('time', [zeroPad(minutes, 2), zeroPad(seconds, 2)].join("-"));
-
-            if(startTime >= bomb_expand_after_seconds &&
-               startTime % bomb_expand_every_seconds === 0 &&
-               bomb_radius < bomb_max_radius) {
-                    bomb_radius++;
-                    dashboard.setItem('bomb_radius', bomb_radius);
-                    for (var p in players) {
-                        var player = players[p];
-                        if(player.bombRadius < bomb_radius) {
-                            player.bombRadius = bomb_radius;
-                        }
-                    }
-            }
-
-            for (var pid in players) {
-                dashboard.setItem('player' + players[pid].id, players[pid].wins);
-            }
-        };
-        updateDashboardId = setInterval(updateDashboard, 1000);
-
-
+        dashboard.addButtonListener('btnAddBot', onAddBotClick);
+        dashboard.addButtonListener('btnGo', onGoClick);
         // a=document.getElementById('script');
         // a.onchange = function () {
         //     console.log(a.value);
