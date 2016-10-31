@@ -1,0 +1,16 @@
+{
+  "name": "bomber-bot",
+  "version": "1.0.0",
+  "description": "bomber-bot",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kzub/bomber-bot.git"
+  },
+  "license": "WTFPL",
+  "scripts": {
+    "start": "node bin/server"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

@@ -1,7 +1,7 @@
 // constants
 const TEXT = {
     SET: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ.()_?_!-  0123456789  +-*/_=',
-    SPRITE_PATH: '/bomberman/sprites/font_white3.png',
+    SPRITE_PATH: '/sprites/font_white3.png',
     LETTER_WIDTH: 32,
     LETTER_HEIGHT: 30,
     LETTERS_IN_ROW: 6
