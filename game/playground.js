@@ -57,12 +57,12 @@
     };
 
     function preload () {
-        game.load.spritesheet('dude', '/bomberman/sprites/bomberman.png', 40, 60);
-        game.load.spritesheet('bomb', '/bomberman/sprites/bomb2.png', 60, 60);
-        game.load.spritesheet('flames', '/bomberman/sprites/bomb2.png', 60, 60);
-        game.load.spritesheet('bricks', '/bomberman/sprites/bricks.png', 60, 60);
-        game.load.audiosprite('explode', '/bomberman/sounds/explosion_15.mp3');
-        game.load.audiosprite('hurt', '/bomberman/sounds/hurt1.mp3');
+        game.load.spritesheet('dude', '/sprites/bomberman.png', 40, 60);
+        game.load.spritesheet('bomb', '/sprites/bomb2.png', 60, 60);
+        game.load.spritesheet('flames', '/sprites/bomb2.png', 60, 60);
+        game.load.spritesheet('bricks', '/sprites/bricks.png', 60, 60);
+        game.load.audiosprite('explode', '/sounds/explosion_15.mp3');
+        game.load.audiosprite('hurt', '/sounds/hurt1.mp3');
     }
 
     function create () {
