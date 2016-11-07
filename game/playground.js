@@ -21,7 +21,7 @@
     var game_wins_to_finish = 3;
     var activePlayers = [];
     var bomb_max_radius = 10;
-    var bomb_expand_after_seconds = 20;
+    var bomb_expand_after_seconds = 5;
     var bomb_expand_every_seconds = 5;
 
     // export readonly functions:
