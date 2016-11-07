@@ -16,6 +16,7 @@ const makeBomb = function (player) {
         type: 'bomb',
         owner: player.id,
         name: player.name,
+        radius: player.bombRadius,
         x: map_x,
         y: map_y,
         birth: bomb_birth,

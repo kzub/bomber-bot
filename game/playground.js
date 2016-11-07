@@ -20,9 +20,9 @@
     var allow_bombing = true;
     var game_wins_to_finish = 3;
     var activePlayers = [];
-    var bomb_max_radius = 13;
-    var bomb_expand_after_seconds = 60;
-    var bomb_expand_every_seconds = 10;
+    var bomb_max_radius = 10;
+    var bomb_expand_after_seconds = 20;
+    var bomb_expand_every_seconds = 5;
 
     // export readonly functions:
     Object.defineProperty(window, "addBot",
@@ -97,7 +97,7 @@
         player.x = player.pp.body.x / SPACE.X;
         player.y = player.pp.body.y / SPACE.Y;
 
-        // var stepTime = Date.now();
+        // let stepTime = performance.now();
         var newAction;
 
         try {
@@ -120,6 +120,11 @@
             killPlayer(player.pp);
             return;
         }
+
+        // let diff = performance.now() - stepTime;
+        // if (diff > 0.1){
+        //     console.log('time',diff);
+        // }
 
         if (newAction == 'bomb' && allow_bombing) {
             if(Date.now() > player.nextBombTime) {
