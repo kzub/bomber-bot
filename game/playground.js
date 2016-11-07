@@ -50,10 +50,6 @@
             dashboard.addItem("player" + plr.id, plr.name, plr.wins, 
                 { align: "right", tint: getTint(plr.id) });
         }
-        // debug [do not use it]:
-        p = players;
-        m = map_objects_unsafe;
-        b = pp_bombs;
     };
 
     function preload () {
@@ -383,6 +379,7 @@
         // debug [do not use it]:
         glob_game = game;
         glob_dash = dashboard;
+
         window.destroy = function (){
             game.destroy();
             dashboard.destroy();
