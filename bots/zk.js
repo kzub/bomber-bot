@@ -30,7 +30,6 @@
                     bomb_map[new_x] = bomb_map[new_x] || {};
                     bomb_map[new_x][bomb.y] = bomb.birth;
                 }
-
                 for(let by = 1; by <= radius; by++){
                     let new_y = bomb.y + by;
                     if(map(bomb.x, new_y) === WALL) {
@@ -66,7 +65,7 @@ globaldots2 = [];
         let iterPath = function(x, y, iter, path, weight, forbid) {
             if (iter === undefined) {
                 path = [];
-                iter = 4;
+                iter = 3;
                 weight = 1;
             }
             path.push([x, y]);
@@ -164,54 +163,44 @@ globaldots2 = [];
                     target.x = object.x;
                     target.y = object.y; 
                 }
-
-                if (my_state.bomb > Date.now()) {
-                    continue;
-                }
-
-                if (xdiff > my_info.bombRadius || ydiff > my_info.bombRadius) {
-                    continue;
-                }
-                
-                // place bomb if enemi is near
-                if (object.x < my_info.x && object.lastAction !== 'left') {
-                    my_state.bomb = Date.now() + bombInterval;
-                    return 'bomb';
-                }
-                else if (my_info.x <= object.x && object.lastAction !== 'right') {
-                    my_state.bomb = Date.now() + bombInterval;
-                    return 'bomb';
-                }
-                else if (object.y <= my_info.y && object.lastAction !== 'down') {
-                    my_state.bomb = Date.now() + bombInterval;
-                    return 'bomb';
-                }
-                else if (my_info.y > object.y && object.lastAction !== 'up') {
-                    my_state.bomb = Date.now() + bombInterval;
-                    return 'bomb';
-                }
             }
             else if (object.type === 'bomb') {
                 there_is_a_bomb = true;
             }
         }
 
+        if (!my_state.bomb || my_state.bomb < Date.now()) {
+            let eq_x = Math.floor(target.x) === Math.floor(my_info.x);
+            let eq_y = Math.floor(target.y) === Math.floor(my_info.y);
+            let xdiff = Math.floor(Math.abs(target.x - my_info.x));
+            let ydiff = Math.floor(Math.abs(target.y - my_info.y));
+
+            if (xdiff <= my_info.bombRadius && eq_y) {
+                my_state.bomb = Date.now() + bombInterval * (1 + Math.round());
+                return 'bomb';
+            } 
+            else if (ydiff <= my_info.bombRadius && eq_x) {
+                my_state.bomb = Date.now() + bombInterval * (1 + Math.round());
+                return 'bomb';
+            }
+        }
+
         if (!my_state.repath || my_state.repath < Date.now()) {
-            my_state.repath = Date.now() + 100;
+            my_state.repath = Date.now() + 10;
             let bomb_map = {};
             if(there_is_a_bomb){
                 bomb_map = makeBombMap(map, map_objects);
-                // if (1) {
-                //     globaldots2.forEach(d => d.destroy());
-                //     globaldots2 = [];
-                //     for (let bx in bomb_map) {
-                //         for (let by in bomb_map[bx]) {
-                //             globaldots2.push(
-                //                 glob_game.add.sprite(bx*SPACE.X, by*SPACE.Y, 'bomb', 35)
-                //             );                    
-                //         }
-                //     }                    
-                // }
+                if (1) {
+                    globaldots2.forEach(d => d.destroy());
+                    globaldots2 = [];
+                    for (let bx in bomb_map) {
+                        for (let by in bomb_map[bx]) {
+                            globaldots2.push(
+                                glob_game.add.sprite(bx*SPACE.X, by*SPACE.Y, 'bomb', 35)
+                            );                    
+                        }
+                    }                    
+                }
             }
 
             let nextStep = getPath(my_state, map, bomb_map, x, y, target.x, target.y);
@@ -223,6 +212,10 @@ globaldots2 = [];
 
         var distance_x = my_state.x - my_info.x;
         var distance_y = my_state.y - my_info.y;
+
+        if (x == Math.floor(target.x) && y == Math.floor(target.y)) {
+            // return 'stop';
+        }
 
         if (!my_state.y_priority && distance_x > 0) {
             if (map(x + 1, y) > 0) {
